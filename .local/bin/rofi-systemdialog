@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+#
+# rofi-systemdialog - systemdialog with rofi
+#
+# Copyright (c) 2018 by Christian Rebischke <chris@nullday.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http: #www.gnu.org/licenses/
+#
+#======================================================================
+# Author: Christian Rebischke
+# Email : chris@nullday.de
+# Github: www.github.com/shibumi
+
+_rofi () {
+    rofi -i -no-levenshtein-sort -lines 8 "$@"
+}
+
+
+input=`echo "undock|undock and lock|lock|dockhome|dockwork|quit i3|reboot|poweroff" | _rofi -sep '|' -dmenu -p "systemdialog:"`
+
+
+case $input in
+    "undock")
+        xrandr --output HDMI3 --off
+        xrandr --output DP1 --off
+        xrandr --output LVDS1 --auto
+        xrandr --output VGA1 --off
+        ;;
+
+    "undock and lock")
+        xrandr --output HDMI3 --off
+        xrandr --output DP1 --off
+        xrandr --output LVDS1 --auto
+        xrandr --output VGA1 --off
+        #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
+        /usr/local/lib/i3blocks/i3lock-color
+        ;;
+
+    "lock")
+        #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
+        /usr/local/lib/i3blocks/i3lock-color
+        ;;
+
+    "dockhome")
+        #/usr/local/bin/dockhome
+        xrandr --output HDMI3 --mode 1920x1080 --left-of LVDS1
+        xrandr --output LVDS1 --off
+        xrandr --output VGA1 --mode 1920x1080 --right-of HDMI3
+        # setxkbmap de us
+        ;;
+
+    "dockwork")
+        #/usr/local/bin/dockwork
+        xrandr --output DP1 --mode 1920x1200 --left-of LVDS1
+        xrandr --output LVDS1 --off
+        xrandr --output VGA1 --mode 1920x1200 --left-of DP1
+        # setxkbmap de us
+        ;;
+
+    "quit i3")
+         case `echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to quit:"` in
+            "yes")
+                i3-msg exit
+                ;;
+            "no")
+                ;;
+        esac
+        ;;
+
+    "reboot")
+        case `echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to reboot:"` in
+            "yes")
+                systemctl reboot
+                ;;
+            "no")
+                ;;
+        esac
+        ;;
+
+    "poweroff")
+        case `echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to poweroff:"` in
+            "yes")
+                systemctl poweroff
+                ;;
+            "no")
+                ;;
+        esac
+        ;;
+esac
