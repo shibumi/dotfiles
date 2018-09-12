@@ -1,0 +1,8 @@
+*
+!.gitignore
+!.local/bin/mknspawn
+!.local/bin/rofi-systemdialog
+!.local/bin/screenshot
+!.local/bin/textshot
+!.local/bin/videoshot
+
