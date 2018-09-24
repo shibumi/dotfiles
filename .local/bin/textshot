@@ -22,8 +22,13 @@
 # Email : chris@nullday.de
 # Github: www.github.com/shibumi
 
+readonly TEXTSHOTDIR="$HOME/.cache/textshot/"
+
+if [[ ! -e "$TEXTSHOTDIR" ]]; then
+    mkdir -p "$TEXTSHOTDIR"
+fi
 readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
-readonly TEXTPATH="$HOME/.cache/text-$TIME.txt"
+readonly TEXTPATH="$TEXTSHOTDIR/text-$TIME.txt"
 xclip -o > "$TEXTPATH"
 readonly OUTPUT="$(fb "$TEXTPATH")"
 notify-send "Text uploaded" "$OUTPUT"
