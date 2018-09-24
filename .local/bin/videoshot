@@ -26,7 +26,7 @@ round() {
     echo $(( ${1:?need one argument} / 2 * 2))
 }
 
-readonly VIDEOSHOTDIR="$HOME/.cache/videoshot/"
+readonly VIDEOSHOTDIR="$HOME/.cache/videoshot"
 
 if [[ ! -e $VIDEOSHOTDIR ]]; then
     mkdir -p "$VIDEOSHOTDIR"
@@ -35,7 +35,7 @@ fi
 readonly PIDPATH="$VIDEOSHOTDIR/videoshot.pid"
 readonly RESOURCEPATH="$VIDEOSHOTDIR/videoshot.txt"
 
-if [[ ! -f "$HOME/.cache/videoshot.pid" ]]; then
+if [[ ! -f "$PIDPATH" ]]; then
     readonly border="-show_region 1"
     readonly rect_encopts="-r 30 -c:v libx264 -preset slow -crf 18 -c:a libvorbis"
     readonly ffmpeg_display=$DISPLAY
