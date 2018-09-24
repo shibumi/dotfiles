@@ -22,8 +22,13 @@
 # Email : chris@nullday.de
 # Github: www.github.com/shibumi
 
+readonly SCREENSHOTDIR="$HOME/.cache/screenshot/"
+
+if [[ ! -e "$SCREENSHOTDIR" ]]; then
+    mkdir -p "$SCREENSHOTDIR"
+fi
 readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
-readonly IMGPATH="$HOME/.cache/img-$TIME.png"
+readonly IMGPATH="$SCREENSHOTDIR/img-$TIME.png"
 maim -s "$IMGPATH"
 readonly OUTPUT="$(fb "$IMGPATH")"
 notify-send "Screenshot uploaded" "$OUTPUT"
