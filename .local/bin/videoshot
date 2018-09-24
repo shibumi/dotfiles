@@ -26,14 +26,14 @@ round() {
     echo $(( ${1:?need one argument} / 2 * 2))
 }
 
-readonly VIDEOSHOTPATH="$HOME/.cache/videoshot/"
+readonly VIDEOSHOTDIR="$HOME/.cache/videoshot/"
 
-if [[ ! -e $VIDEOSHOTPATH ]]; then
-    mkdir -p "$VIDEOSHOTPATH"
+if [[ ! -e $VIDEOSHOTDIR ]]; then
+    mkdir -p "$VIDEOSHOTDIR"
 fi
 
-readonly PIDPATH="$VIDEOSHOTPATH/videoshot.pid"
-readonly RESOURCEPATH="$VIDEOSHOTPATH/videoshot.txt"
+readonly PIDPATH="$VIDEOSHOTDIR/videoshot.pid"
+readonly RESOURCEPATH="$VIDEOSHOTDIR/videoshot.txt"
 
 if [[ ! -f "$HOME/.cache/videoshot.pid" ]]; then
     readonly border="-show_region 1"
@@ -45,7 +45,7 @@ if [[ ! -f "$HOME/.cache/videoshot.pid" ]]; then
     readonly W=$(round $W)
     readonly H=$(round $H)
     readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
-    readonly VIDPATH="$VIDEOSHOTPATH/rec-$TIME.mp4"
+    readonly VIDPATH="$VIDEOSHOTDIR/rec-$TIME.mp4"
     (
     ffmpeg -f x11grab ${border} -s "$W"x"$H" -i $ffmpeg_display+$X,$Y $rect_encopts "$VIDPATH" &
     echo "$!" > "$PIDPATH"
