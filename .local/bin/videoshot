@@ -26,31 +26,40 @@ round() {
     echo $(( ${1:?need one argument} / 2 * 2))
 }
 
+readonly VIDEOSHOTPATH="$HOME/.cache/videoshot/"
+
+if [[ ! -e $VIDEOSHOTPATH ]]; then
+    mkdir -p "$VIDEOSHOTPATH"
+fi
+
+readonly PIDPATH="$VIDEOSHOTPATH/videoshot.pid"
+readonly RESOURCEPATH="$VIDEOSHOTPATH/videoshot.txt"
+
 if [[ ! -f "$HOME/.cache/videoshot.pid" ]]; then
     readonly border="-show_region 1"
     readonly rect_encopts="-r 30 -c:v libx264 -preset slow -crf 18 -c:a libvorbis"
-    readonly ffmpeg_display=$(echo $DISPLAY)
+    readonly ffmpeg_display=$DISPLAY
     read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
     readonly X=$(round $X)
     readonly Y=$(round $Y)
     readonly W=$(round $W)
     readonly H=$(round $H)
     readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
-    readonly VIDPATH="$HOME/.cache/rec-$TIME.mp4"
+    readonly VIDPATH="$VIDEOSHOTPATH/rec-$TIME.mp4"
     (
     ffmpeg -f x11grab ${border} -s "$W"x"$H" -i $ffmpeg_display+$X,$Y $rect_encopts "$VIDPATH" &
-    echo "$!" > "$HOME/.cache/videoshot.pid"
-    echo "$VIDPATH" > "$HOME/.cache/videoshot.txt"
+    echo "$!" > "$PIDPATH"
+    echo "$VIDPATH" > "$RESOURCEPATH"
     notify-send "Start recording" "$VIDPATH"
-    readonly pid="$(cat $HOME/.cache/videoshot.pid)"
-    wait "$pid"
-    readonly VIDPATH="$(cat $HOME/.cache/videoshot.txt)"
+    readonly PID="$(cat $PIDPATH)"
+    wait "$PID"
+    readonly VIDPATH="$(cat $RESOURCEPATH)"
     readonly OUTPUT="$(fb "$VIDPATH")"
     notify-send "Video uploaded" "$OUTPUT"
-    rm "$HOME/.cache/videoshot.pid"
-    rm "$HOME/.cache/videoshot.txt"
+    rm "$PIDPATH"
+    rm "$RESOURCEPATH"
     ) &
 else
-    readonly pid="$(cat $HOME/.cache/videoshot.pid)"
-    kill "$pid"
+    readonly PID="$(cat $PIDPATH)"
+    kill "$PID"
 fi
