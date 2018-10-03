@@ -54,8 +54,12 @@ if [[ ! -f "$PIDPATH" ]]; then
     readonly PID="$(cat $PIDPATH)"
     wait "$PID"
     readonly VIDPATH="$(cat $RESOURCEPATH)"
-    readonly OUTPUT="$(fb "$VIDPATH")"
-    notify-send "Video uploaded" "$OUTPUT"
+    if [ ! -f "$VIDPATH" ]; then
+        notify-send "Recording aborted"
+    else
+        readonly OUTPUT="$(fb "$VIDPATH")"
+        notify-send "Video uploaded" "$OUTPUT"
+    fi
     rm "$PIDPATH"
     rm "$RESOURCEPATH"
     ) &
