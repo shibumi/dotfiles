@@ -1,0 +1,34 @@
+set editor='vim'
+set realname="Christian Rebischke"
+set my_name="Christian Rebischke"
+set imap_user="shibumi@mailbox.org"
+set imap_pass = `pass mailbox.org`
+set smtp_pass = `pass mailbox.org`
+set header_cache = "~/.config/mutt/cache"
+set folder = "imaps://imap.mailbox.org:993"
+set spoolfile = +INBOX
+mailboxes = +INBOX +Drafts +Trash +Junk +Archive +Sent +Archlinux +BOC +CCC +Development +Finance +Infrastructure +Mailbox +Milliways +OSS-Security +Posteo +Shopping +Social +Telekom
+set folder="~/.config/mutt/mail"
+set smtp_url="smtps://$imap_user@smtp.mailbox.org:465"
+set ssl_force_tls = yes
+source  ~/.config/mutt/crypto
+set from="Chris.Rebischke@archlinux.org"
+set use_from = yes
+set certificate_file="/home/user/.config/mutt/mutt_certificates"
+set record="imaps://imap.mailbox.org:993/Sent"
+auto_view text/html
+set query_command = "abook --mutt-query '%s'"
+set alias_file= ~/.config/mutt/mutt_alias
+set sort_alias= alias
+set reverse_alias=yes
+source $alias_file
+#set sidebar_visible
+#set sidebar_short_path
+#bind index,pager \Cn sidebar-next
+#bind index,pager \Cp sidebar-prev
+#bind index,pager \Co sidebar-open
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+source ~/.config/mutt/colors
+set mailcap_path = ~/.config/mutt/mailcap
+set strict_threads=yes
