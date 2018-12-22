@@ -44,12 +44,12 @@ case $input in
         xrandr --output LVDS1 --auto
         xrandr --output VGA1 --off
         #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
-        /usr/local/lib/i3blocks/i3lock-color
+        env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
         ;;
 
     "lock")
         #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
-        /usr/local/lib/i3blocks/i3lock-color
+        env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
         ;;
 
     "dockhome")
