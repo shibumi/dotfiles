@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# script for activating double screen mode at work
+xrandr --output DP1 --mode 1920x1200 --left-of LVDS1
+xrandr --output LVDS1 --off
+xrandr --output VGA1 --mode 1920x1200 --left-of DP1
+setxkbmap de us

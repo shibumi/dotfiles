@@ -1,5 +1,7 @@
 *
 !.gitignore
+!.local
+!.local/bin/
 !.local/bin/mknspawn
 !.local/bin/rofi-systemdialog
 !.local/bin/screenshot
