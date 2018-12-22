@@ -1,0 +1,87 @@
+[core]
+    editor = vim
+[user]
+    name = Christian Rebischke
+	email = chris@nullday.de
+    signingkey = DFE2060D
+[credential]
+    helper = cache --timeout=999999
+[commit]
+    gpgsign = true
+[tag]
+    forceSignAnnotated = true
+[alias]
+    a = add
+    am = am -s
+    ap = add -p
+    b = branch -vv
+    c = commit -s -v
+    ca = commit -s -v --amend
+    cm = commit -s -m
+    cnf = config
+    cnfg = config --global
+    co = checkout
+    cob = checkout -b
+    cp = cherry-pick
+    cv = cherry -v
+    d = diff
+    dc = diff --cached
+    dw = diff --color-words
+    dwc = diff --color-words --cached
+    f = fetch
+    fix = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+    fuck = reset --hard
+    l = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --decorate=short
+    lg = log --graph --oneline --decorate --all
+    list-branches = branch --sort=committerdate --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset) %(align:30)%(color:yellow)%(refname:short)%(color:reset)%(end) %(align:30)(%(color:green)%(committerdate:relative)%(color:reset))%(end) %(align:20)%(authorname)%(end) %(contents:subject)'
+    mff = merge --ff-only
+    mnf = merge --no-ff
+    ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+    pl = pull
+    ph = push
+    pht = push --tags
+    rb = rebase
+    rbi = rebase -i --autosquash
+    rst = reset
+    s = status -s
+    ss = status
+    st = stash
+    sta = stash apply
+    std = stash drop
+    stl = stash list
+    stp = stash pop
+    sts = stash save
+    t = tag
+    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+    w = whatchanged
+    wipe = "!f() { git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch "$1"' --prune-empty --tag-name-filter cat -- --all; }; f"
+[merge]
+    tool = vimdiff3
+[mergetool "cp"]
+    cmd = cp \"$REMOTE\" \"$MERGED\"
+[mergetool "vim"]
+    cmd = vim -f \"$MERGED\"
+[mergetool "vimdiff3"]
+    cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[mergetool "splice"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true
+[color]
+    diff = always
+    status = always
+    branch = always
+    interactive = always
+[pager]
+    diff = /usr/share/git/diff-highlight/diff-highlight | less
+    log = /usr/share/git/diff-highlight/diff-highlight | less
+    show = /usr/share/git/diff-highlight/diff-highlight | less
+[push]
+    default = current
+[rerere]
+    enabled = true
+[transfer]
+    fsckobjects = true
+[fetch]
+    fsckobjects = true
+[receive]
+    fsckobjects = true

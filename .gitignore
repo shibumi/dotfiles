@@ -29,3 +29,7 @@
 !.config/mutt/muttrc.tu-clausthal
 !.config/mutt/smime
 !.config/termite/config
+!.gitconfig
+!.vimrc
+!.zprofile
+!.zshrc
