@@ -1,0 +1,143 @@
+---
+name: 'accuraterip-checksum (github)'
+command: 'git ls-remote --tags https://github.com/leo-bogert/accuraterip-checksum'
+---
+name: 'arch-audit (github)'
+command: 'git ls-remote --tags https://github.com/ilpianista/arch-audit'
+---
+name: 'ascii (website)'
+command: "curl 'http://www.catb.org/~esr/ascii/' 2>/dev/null|grep -i ascii-|grep gz"
+---
+name: 'asciidoctor (github)'
+command: 'git ls-remote --tags https://github.com/asciidoctor/asciidoctor/'
+---
+name: 'audit (website)'
+command: "curl 'https://people.redhat.com/sgrubb/audit/' 2>/dev/null|grep -i audit-|grep gz"
+---
+name: 'awesome-terminal-fonts (github)'
+command: 'git ls-remote --tags https://github.com/gabrielelana/awesome-terminal-fonts'
+---
+name: 'bfgminer (github)'
+command: 'git ls-remote --tags https://github.com/luke-jr/bfgminer'
+---
+name: 'biber (github)'
+command: 'git ls-remote --tags https://github.com/plk/biber'
+---
+name: 'bitcoin (github)'
+command: 'git ls-remote --tags https://github.com/bitcoin/bitcoin'
+---
+name: 'bup (github)'
+command: 'git ls-remote --tags https://github.com/bup/bup'
+---
+name: 'cgminer (github)'
+command: 'git ls-remote --tags https://github.com/ckolivas/cgminer'
+---
+name: 'connman (git)'
+command: 'git ls-remote --tags https://git.kernel.org/pub/scm/network/connman/connman.git/'
+---
+name: 'iwd (git)'
+command: 'git ls-remote --tags https://git.kernel.org/pub/scm/network/wireless/iwd.git/'
+---
+name: 'electrum (github)'
+command: 'git ls-remote --tags https://github.com/spesmilo/electrum'
+---
+name: 'gflags (github)'
+command: 'git ls-remote --tags https://github.com/schuhschuh/gflags'
+---
+name: 'greenbone-security-assistant (github)'
+command: 'git ls-remote --tags https://github.com/greenbone/gsa'
+---
+name: 'i3blocks (github)'
+command: 'git ls-remote --tags https://github.com/vivien/i3blocks'
+---
+name: 'networkmanager-strongswan (website)'
+command: "curl 'https://download.strongswan.org/NetworkManager/' 2>/dev/null|grep -i NetworkManager-strongswan-|grep bz2"
+---
+name: 'openvas-cli (website)'
+command: "curl 'http://www.openvas.org/install-source.html' 2>/dev/null|grep -i openvas-cli-|grep gz"
+---
+name: 'openvas-libraries (git)'
+command: 'git ls-remote --tags https://github.com/greenbone/gvm-libs'
+---
+name: 'openvas-manager (git)'
+command: 'git ls-remote --tags https://github.com/greenbone/gvm'
+---
+name: 'openvas-scanner (git)'
+command: 'git ls-remote --tags https://github.com/greenbone/openvas-scanner'
+---
+name: 'packer-io (github)'
+command: 'git ls-remote --tags https://github.com/hashicorp/packer'
+---
+name: 'playerctl (github)'
+command: 'git ls-remote --tags https://github.com/acrisci/playerctl'
+---
+name: 'python-terminaltables (github)'
+command: 'git ls-remote --tags https://github.com/Robpol86/terminaltables'
+---
+name: 'strongswan (git)'
+command: 'git ls-remote --tag git://git.strongswan.org/strongswan.git'
+---
+name: 'sysstat (github)'
+command: 'git ls-remote --tags https://github.com/sysstat/sysstat'
+---
+name: 'virt-manager (github)'
+command: 'git ls-remote --tags https://github.com/virt-manager/virt-manager'
+---
+name: 'weechat (github)'
+command: 'git ls-remote --tags https://github.com/weechat/weechat'
+---
+name: 'whipper (github)'
+command: 'git ls-remote --tags https://github.com/JoeLametta/whipper'
+---
+name: 'zsh-theme-powerlevel9k (github)'
+command: 'git ls-remote --tags https://github.com/bhilburn/powerlevel9k'
+---
+name: 'vault (github)'
+command: 'git ls-remote --tags https://github.com/hashicorp/vault'
+---
+name: 'hcloud (github)'
+command: 'git ls-remote --tags https://github.com/hetznercloud/cli'
+---
+name: 'libvirt (github)'
+command: 'git ls-remote --tags https://github.com/libvirt/libvirt'
+---
+name: 'terraform (github)'
+command: 'git ls-remote --tags https://github.com/hashicorp/terraform'
+---
+name: 'python-btchip (github)'
+command: 'git ls-remote --tags https://github.com/LedgerHQ/btchip-python'
+---
+name: 'bettercap (github)'
+command: 'git ls-remote --tags https://github.com/bettercap/bettercap'
+---
+name: 'rapidjson (github)'
+command: 'git ls-remote --tags https://github.com/Tencent/rapidjson'
+---
+name: 'ruby-shadow (github)'
+command: 'git ls-remote --tags https://github.com/apalmblad/ruby-shadow'
+---
+name: 'puppet (github)'
+command: 'git ls-remote --tags https://github.com/puppetlabs/puppet'
+---
+name: 'facter (github)'
+command: 'git ls-remote --tags https://github.com/puppetlabs/facter'
+---
+name: 'cpp-hocon (github)'
+command: 'git ls-remote --tags https://github.com/puppetlabs/cpp-hocon'
+---
+name: 'glances (github)'
+command: 'git ls-remote --tags https://github.com/nicolargo/glances'
+---
+name: 'hiera (github)'
+command: 'git ls-remote --tags https://github.com/puppetlabs/hiera'
+---
+name: 'leatherman (github)'
+command: 'git ls-remote --tags https://github.com/puppetlabs/leatherman'
+---
+name: 'ruby-augeas (github)'
+command: 'git ls-remote --tags https://github.com/hercules-team/ruby-augeas'
+---
+name: 'alacritty (github)'
+command: 'git ls-remote --tags https://github.com/jwilm/alacritty'
+...
+

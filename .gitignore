@@ -29,7 +29,15 @@
 !.config/mutt/muttrc.tu-clausthal
 !.config/mutt/smime
 !.config/termite/config
+!.config/urlwatch/
+!.config/urlwatch/urls.yaml
+!.config/urlwatch/urlwatch.yaml
 !.gitconfig
 !.vimrc
 !.zprofile
 !.zshrc
+!.gnupg/
+!.gnupg/gpg-agent.conf
+!.gnupg/gpg.conf
+!.config/gtk-3.0/
+!.config/gtk-3.0/settings.ini
