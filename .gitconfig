@@ -33,6 +33,7 @@
     fuck = reset --hard
     l = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --decorate=short
     lg = log --graph --oneline --decorate --all
+    ls = ls-files
     list-branches = branch --sort=committerdate --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset) %(align:30)%(color:yellow)%(refname:short)%(color:reset)%(end) %(align:30)(%(color:green)%(committerdate:relative)%(color:reset))%(end) %(align:20)%(authorname)%(end) %(contents:subject)'
     mff = merge --ff-only
     mnf = merge --no-ff
