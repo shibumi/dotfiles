@@ -1,0 +1,22 @@
+#!/bin/bash
+
+main='kurisu.nullday.de'
+hosts=('kurisu.nullday.de' 'ritsuko.nullday.de')
+
+if [ $# -eq 0 ]; then
+    echo "git-repo <repository name>"
+fi
+
+if [[ ! $(git remote -v) ]]; then
+    git remote add origin "git@${main}:/home/git/{$1}.git"
+fi
+
+for host in "${hosts[@]}"; do
+    ssh -t "${host}" sudo -u git git init --bare "/home/git/${1}.git"
+    git remote set-url origin --push --add "git@${host}:/home/git/${1}.git"
+done
+
+git remote -v
+
+
+

@@ -1,0 +1,30 @@
+alias archsec arch-security@archlinux.org
+alias intern intern@lists.ccc.de
+alias milliways milliways@mail-2.ramdrive.org
+alias devops arch-devops@lists.archlinux.org
+alias marg marg@rz.tu-clausthal.de
+alias ina ina.kuester@tu-clausthal.de
+alias support support@rz.tu-clausthal.de
+alias olaf.ippisch olaf.ippisch@tu-clausthal.de
+alias behnke behnke@math.tu-clausthal.de
+alias arch-projects arch-projects@archlinux.org
+alias mirco.schindler \"\\\"Dipl.-Inf. Mirco Schindler\\\"\" <mirco.schindler@tu-clausthal.de>
+alias stefan.wittek Stefan Wittek <stefan.wittek@tu-clausthal.de>
+alias janusz.von.Wysiecki Janusz von Wysiecki <Janusz.von.Wysiecki@tu-clausthal.de>
+alias frank.ebeling Frank Ebeling <ebeling@rz.tu-clausthal.de>
+alias andreas.rausch \"Prof. Dr. Andreas Rausch\" <andreas.rausch@tu-clausthal.de>
+alias arch-dev-public Public mailing list for Arch Linux development <arch-dev-public@archlinux.org>
+alias harald.richter Harald Richter <hri@tu-clausthal.de>
+alias heidi.oberthuer Heidi Oberthuer <oberthuer@rz.tu-clausthal.de>
+alias strauf Christian Strauf <strauf@rz.tu-clausthal.de>
+alias diedrich Martin Diedrich <diedrich@rz.tu-clausthal.de>
+alias oliver.koch Oliver Koch <koch@rz.tu-clausthal.de>
+alias allan Allan McRae <allan@archlinux.org>
+alias stapel Ingo Stapel <stapel@rz.tu-clausthal.de>
+alias abram.lawendy Abram Lawendy <abram.lawendy@tu-clausthal.de>
+alias nils-ruven.baehr Nils-Ruven Bähr <nils-ruven.baehr@tu-clausthal.de>
+alias veronika.lenk Veronika Lenk <veronika.lenk@tu-clausthal.de>
+alias sebastian.klepatz Sebastian Klepatz <sebastian.klepatz@tu-clausthal.de>
+alias starke Bernd Starke <starke@rz.tu-clausthal.de>
+alias constanze.schidda Constanze Schidda <constanze.schidda@tu-clausthal.de>
+alias aur-general \"Discussion about the Arch User Repository (AUR)\" <aur-general@archlinux.org>
