@@ -5,6 +5,7 @@ hosts=('kurisu.nullday.de' 'ritsuko.nullday.de')
 
 if [ $# -eq 0 ]; then
     echo "git-repo <repository name>"
+    exit 1
 fi
 
 if [[ ! $(git remote -v) ]]; then
@@ -17,6 +18,3 @@ for host in "${hosts[@]}"; do
 done
 
 git remote -v
-
-
-
