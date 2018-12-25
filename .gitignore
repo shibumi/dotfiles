@@ -40,3 +40,6 @@
 !.gnupg/gpg.conf
 !.config/gtk-3.0/
 !.config/gtk-3.0/settings.ini
+!.ssh/
+!.ssh/config
+!.ssh/id_rsa.puba
