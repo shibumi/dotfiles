@@ -42,4 +42,4 @@
 !.config/gtk-3.0/settings.ini
 !.ssh/
 !.ssh/config
-!.ssh/id_rsa.puba
+!.ssh/id_rsa.pub
