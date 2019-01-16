@@ -33,6 +33,9 @@
 !.config/urlwatch/urlwatch.yaml
 !.config/i3blocks
 !.config/i3blocks/config
+!.config/systemd/
+!.config/systemd/user
+!.config/systemd/user/ssh-agent.service
 !.gitconfig
 !.vimrc
 !.zprofile
