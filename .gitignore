@@ -31,6 +31,8 @@
 !.config/urlwatch/
 !.config/urlwatch/urls.yaml
 !.config/urlwatch/urlwatch.yaml
+!.config/i3blocks
+!.config/i3blocks/config
 !.gitconfig
 !.vimrc
 !.zprofile
