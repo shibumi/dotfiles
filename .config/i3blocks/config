@@ -1,0 +1,83 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+command=/usr/local/lib/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[usb]
+interval=once
+signal=4
+
+[wireguard]
+instance=wg0
+interval=once
+signal=2
+
+[mpd]
+interval=persistent
+color=#01A0E4
+
+[disk]
+interval=10
+
+[temperature]
+interval=5
+
+[wifi]
+instance=wlp3s0
+interval=10
+separator=true
+
+[external-ip]
+interval=once
+separator=true
+signal=2
+
+[ethernet]
+instance=enp0s25
+interval=10
+separator=true
+
+[battery]
+interval=5
+
+[volume]
+interval=once
+signal=10
+
+[memory]
+separator=true
+interval=5
+
+[cpu_usage]
+interval=5
+
+[containers]
+instance=work
+separator=true
+interval=once
+signal=3
+
+[time]
+command=date '+%Y-%m-%d %H:%M'
+interval=5
