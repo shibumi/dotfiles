@@ -20,7 +20,7 @@
 # signal
 # urgent
 
-command=/usr/local/lib/i3blocks/$BLOCK_NAME
+command=/home/chris/.local/i3/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
