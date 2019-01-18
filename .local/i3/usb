@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source $(dirname "$0")/colors
+
+if usbctl check > /dev/null; then
+    echo -e "\uF023 USB\n"
+    echo -e "$GREEN\n"
+else
+    echo -e "\uF023 USB\n"
+    echo -e "$RED\n"
+fi

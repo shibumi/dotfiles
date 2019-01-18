@@ -1,0 +1,14 @@
+#!/bin/bash
+
+while true; do
+    CURRENT="$(mpc current)"
+    STATUS="$(mpc | grep -o '\[playing\]')"
+    if [[ -z "$STATUS" ]]; then
+        echo -e "\u25FC $CURRENT\n"
+    else
+        echo -e "\u25BA $CURRENT\n"
+    fi
+    mpc idle > /dev/null
+done
+
+

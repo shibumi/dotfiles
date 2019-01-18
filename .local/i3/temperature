@@ -1,0 +1,15 @@
+#!/bin/bash
+
+source $(dirname "$0")/colors
+TEMP=$(acpi -t | awk '{printf "%d", $4}')
+
+if [[ $TEMP -ge 86 ]]; then
+    echo -e "\u2F55 ${TEMP}C\n"
+    echo -e "$RED\n"
+elif [[ $TEMP -gt 65 ]]; then
+    echo -e "\u2F55 ${TEMP}C\n"
+    echo -e "$YELLOW\n"
+else
+    echo -e "\u2F55 ${TEMP}C\n"
+    echo -e "$GREEN\n"
+fi

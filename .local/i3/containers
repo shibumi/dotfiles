@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source $(dirname "$0")/colors
+
+MACHINE="${BLOCK_INSTANCE:-machine}"
+MACHINE_CHECK=$(machinectl list | grep $MACHINE)
+
+if [ -n "$MACHINE_CHECK" ]; then
+    echo -e "\uF01B $MACHINE\n"
+    echo -e "$GREEN\n"
+else
+    echo -e "\uF01A $MACHINE\n"
+    echo -e "$RED\n"
+fi

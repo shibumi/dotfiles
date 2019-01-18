@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source $(dirname "$0")/colors
+INTERFACE="${BLOCK_INSTANCE:-eth0}"
+ETHER_MAIN=$(networkctl status $INTERFACE)
+ETHER_STATE=$(echo "$ETHER_MAIN" | awk '/State/{ print $2 }')
+ETHER_ADDRESS=$(echo "$ETHER_MAIN" | awk '/^\s+Address/{ print $2 }')
+ETHER_DNS=$(echo "$ETHER_MAIN" | awk '/DNS/{ print $2 }')
+
+if [[ $ETHER_STATE == "routable" ]]
+then
+    echo -e "\uf287 $INTERFACE: (IP:$ETHER_ADDRESS : DNS:$ETHER_DNS)\n"
+    echo -e "$GREEN\n"
+else
+    echo -e "\uf287 $INTERFACE: Down\n"
+    echo -e "$RED\n"
+fi
+
+

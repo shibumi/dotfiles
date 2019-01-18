@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source $(dirname "$0")/colors
+SOUND_STATE=$(pamixer --get-mute)
+SOUND_PERC=$(pamixer --get-volume)
+
+if [[ $SOUND_STATE == "false" ]]; then
+    echo -e "\u266A $SOUND_PERC%\n"
+    echo -e "$GREEN\n"
+else
+    echo -e "\u266A $SOUND_PERC%\n"
+    echo -e "$RED\n"
+fi
