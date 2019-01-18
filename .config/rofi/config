@@ -1,0 +1,7 @@
+rofi.border: 2
+rofi.width: 100
+rofi.lines: 10
+rofi.padding: 12
+rofi.location: 1
+rofi.color-normal: #151718, #41535B, #151718, #151718, #9FCA56
+rofi.color-window: #151718

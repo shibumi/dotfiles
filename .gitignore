@@ -36,6 +36,8 @@
 !.config/systemd/
 !.config/systemd/user
 !.config/systemd/user/ssh-agent.service
+!.config/rofi/
+!.config/rofi/config
 !.gitconfig
 !.vimrc
 !.zprofile
