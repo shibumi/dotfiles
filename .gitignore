@@ -56,6 +56,8 @@
 !.config/systemd/user/ssh-agent.service
 !.config/rofi/
 !.config/rofi/config
+!.config/mpd/
+!.config/mpd/mpd.conf
 !.gitconfig
 !.vimrc
 !.zprofile
