@@ -35,7 +35,7 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 # Custom commands
-bindsym $mod+Shift+p exec "rofi-pass"
+bindsym $mod+Shift+p exec "rofi-gopass"
 bindsym $mod+Shift+Up exec "pamixer -i 5 && pkill -RTMIN+10 i3blocks"
 bindsym $mod+Shift+Down exec "pamixer -d 5 && pkill -RTMIN+10 i3blocks"
 bindsym $mod+Shift+m exec "pamixer -t && pkill -RTMIN+10 i3blocks"
