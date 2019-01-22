@@ -12,6 +12,7 @@
 !.local/bin/git-repo
 !.local/bin/saver_mpv
 !.local/bin/undock
+!.local/bin/rofi-gopass
 !.local/i3/
 !.local/i3/battery
 !.local/i3/colors
