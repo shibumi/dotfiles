@@ -18,7 +18,6 @@ fi
 # Named Directories
 hash -d aur=/home/chris/export/archlinux/aur/
 hash -d community=/home/chris/export/archlinux/svn-community
-hash -d atm=/home/chris/arch-linux-time-machine/
 
 # Exports
 export EDITOR=vim
