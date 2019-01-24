@@ -29,5 +29,5 @@ _rofi () {
 input=$(gopass list -f | rofi -lines 8 -dmenu -p "gopass")
 x_repeat_enabled=$(xset q | awk '/auto repeat:/ {print $3}')
 xset r off
-printf '%s' "$(gopass "$input")" | xdotool type --clearmodifiers --file -
+printf '%s' "$(gopass show -o "$input")" | xdotool type --clearmodifiers --file -
 xset r "$x_repeat_enabled"
