@@ -90,7 +90,6 @@ au BufRead,BufNewFile Vagrantfile set filetype=Vagrant
 au FileType Vagrant setl ts=2 sts=2 sw=2 tw=78 syntax=ruby
 au FileType PKGBUILD setl ts=2 sts=2 sw=2 et tw=79 syntax=sh
 au FileType INSTALL setl ts=2 sts=2 sw=2 et tw=79 syntax=sh
-autocmd BufWritePre *.py 0,$!yapf
 
 " ===========
 " = Plugins =
@@ -159,6 +158,8 @@ if &diff
 endif
 " Upload to filebin
 com! -range=% Fb :exec "<line1>,<line2>w !fb -e " . &filetype . " -n " . expand("%:t")
+" Format Python Code
+com! -range=% Yapf :exec "0,$!yapf"
 " fugitive git bindings
 if dein#tap('vim-fugitive')
     nnoremap <leader>ga :Git add %:p<CR><CR>
