@@ -72,12 +72,6 @@ interval=5
 [cpu_usage]
 interval=5
 
-[containers]
-instance=work
-separator=true
-interval=once
-signal=3
-
 [time]
 command=date '+%Y-%m-%d %H:%M'
 interval=5
