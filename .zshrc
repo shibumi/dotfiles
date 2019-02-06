@@ -147,8 +147,8 @@ function grmlcomp () {
     # ignore duplicate entries
     zstyle ':completion:*:history-words'   remove-all-dups yes
     zstyle ':completion:*:history-words'   stop yes
-    # match uppercase from lowercase
-    zstyle ':completion:*'                 matcher-list 'm:{a-z}={A-Z}'
+    # match case insensitive
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
     # separate matches into groups
     zstyle ':completion:*:matches'         group 'yes'
     zstyle ':completion:*'                 group-name ''
