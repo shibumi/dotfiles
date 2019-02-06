@@ -7,10 +7,13 @@ WIFI_MAIN=$(networkctl status $INTERFACE)
 WIFI_STATE=$(echo "$WIFI_MAIN" | awk '/State/{ print $2 }')
 WIFI_ADDRESS=$(echo "$WIFI_MAIN" | awk '/^\s+Address/{ print $2 }')
 WIFI_DNS=$(echo "$WIFI_MAIN" | awk '/DNS/{ print $2 }')
+GET_INTERFACE=$(busctl get-property net.connman.iwd /0/3 net.connman.iwd.Station ConnectedNetwork | awk '{ print $2 }')
+GET_INTERFACE=$(sed -e 's/^"//' -e 's/"$//' <<< $GET_INTERFACE)
+CONNECTED_ESSID=$(busctl get-property net.connman.iwd "${GET_INTERFACE}" net.connman.iwd.Network Name | awk '{ print $2 }')
 
 
 if [[ $WIFI_STATE == "routable" ]]; then
-    echo -e "\uF09E $INTERFACE: (IP:$WIFI_ADDRESS : DNS:$WIFI_DNS)\n"
+    echo -e "\uF09E $INTERFACE($CONNECTED_ESSID): (IP:$WIFI_ADDRESS : DNS:$WIFI_DNS)\n"
     echo -e "$GREEN\n"
 else
     echo -e "\uF09E $INTERFACE: Down\n"
