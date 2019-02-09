@@ -59,6 +59,8 @@
 !.config/rofi/config
 !.config/mpd/
 !.config/mpd/mpd.conf
+!.config/user-tmpfiles.d/
+!.config/user-tmpfiles.d/mpd.conf
 !.gitconfig
 !.vimrc
 !.zprofile
