@@ -154,7 +154,7 @@ bindsym $mod+Shift+0 move container to workspace 十
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 
-bindsym $mod+Shift+q exec "rofi-systemdialog"
+bindsym $mod+Shift+q exec "/home/chris/.local/share/scripts/rofi-systemdialog"
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e reload
 
