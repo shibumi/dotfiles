@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# ssh-keys - small script for importing ssh-keys with gopass
+#
+# Copyright (c) 2018 by Christian Rebischke <chris@nullday.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http: #www.gnu.org/licenses/
+#
+#======================================================================
+# Author: Christian Rebischke
+# Email : chris@nullday.de
+# Github: www.github.com/shibumi
+
+
+declare -A KEYS
+KEYS[id_rsa]="ssh/id_rsa"
+KEYS[tuclausthal]="tu-clausthal/ssh/tu-clausthal"
+
+for i in "${!KEYS[@]}"; do
+    SSH_ASKPASS="$HOME/.local/share/scripts/ssh_give_pass.sh" ssh-add \
+        "$HOME/.ssh/${i}" <<< $(gopass "${KEYS[$i]}")
+done
