@@ -9,7 +9,7 @@ if [ $# -eq 0 ]; then
 fi
 
 if [[ ! $(git remote -v) ]]; then
-    git remote add origin "git@${main}:/home/git/{$1}.git"
+    git remote add origin "git@${main}:/home/git/${1}.git"
 fi
 
 for host in "${hosts[@]}"; do
