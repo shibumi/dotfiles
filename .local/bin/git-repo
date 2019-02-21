@@ -1,7 +1,7 @@
 #!/bin/bash
 
 main='kurisu.nullday.de'
-hosts=('kurisu.nullday.de' 'ritsuko.nullday.de')
+hosts=('kurisu.nullday.de')
 
 if [ $# -eq 0 ]; then
     echo "git-repo <repository name>"
