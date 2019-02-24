@@ -1,20 +1,78 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#
+# git-repo - creates a git repository and backup remotes
+#
+# Copyright (c) 2019 by Christian Rebischke <chris@nullday.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/
+#
+#======================================================================
+# Author: Christian Rebischke
+# Email : chris@nullday.de
+# Github: www.github.com/shibumi
 
 main='kurisu.nullday.de'
 hosts=('kurisu.nullday.de')
 
+function helpout(){
+    echo "git-repo {COMMAND} <git repository name>"
+    echo ""
+    echo "Commands:"
+    printf "\tcreate\t<git repository name>\n"
+    printf "\tset\t<git repository name>\n"
+}
+function set_remote() {
+    if [[ ! $(git remote -v) ]]; then
+        git remote add origin "git@${main}:/home/git/${1}.git"
+    fi
+    for host in "${hosts[@]}"; do
+        ssh -t "${host}" sudo -u git git init --bare "/home/git/${1}.git"
+        git remote set-url origin --push --add "git@${host}:/home/git/${1}.git"
+    done
+    git remote -v
+}
+
 if [ $# -eq 0 ]; then
-    echo "git-repo <repository name>"
+    helpout
     exit 1
 fi
 
-if [[ ! $(git remote -v) ]]; then
-    git remote add origin "git@${main}:/home/git/${1}.git"
-fi
-
-for host in "${hosts[@]}"; do
-    ssh -t "${host}" sudo -u git git init --bare "/home/git/${1}.git"
-    git remote set-url origin --push --add "git@${host}:/home/git/${1}.git"
-done
-
-git remote -v
+case $1 in
+    create)
+        if [ $# -eq 2 ]; then
+            mkdir "${2}"
+            printf "\e[32m[+] created %s\e[0m\n" "${2}"
+            cd "${2}" || exit 1
+            printf "\e[32m[+] moved into %s\e[0m\n" "${2}"
+            git init
+            printf "\e[32m[+] initialized git repository\e[0m\n"
+            set_remote "${2}"
+            printf "\e[32m[+] set git remotes\e[0m\n"
+        else
+            printf "\e[31m[-] not enough arguments\e[0m\n"
+        fi
+        ;;
+    set)
+        if [ $# -eq 2 ]; then
+            set_remote "${2}"
+            printf "\e[32m[+] set git remotes\e[0m\n"
+        else
+            printf "\e[31m[-] not enough arguments\e[0m\n"
+        fi
+        ;;
+    *)
+        helpout
+        exit 1
+        ;;
+esac
