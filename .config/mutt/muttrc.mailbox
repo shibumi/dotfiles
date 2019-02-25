@@ -10,7 +10,7 @@ set spoolfile = +INBOX
 mailboxes = +INBOX +Drafts +Trash +Junk +Archive +Sent +Archlinux +BOC +CCC +Development +Finance +Infrastructure +Mailbox +Milliways +OSS-Security +Posteo +Shopping +Social +Telekom
 set folder="~/.config/mutt/mail"
 set ssl_starttls=yes
-set smtp_url="smtps://$imap_user@smtp.mailbox.org:587"
+set smtp_url="smtp://$imap_user@smtp.mailbox.org:587"
 set ssl_force_tls = yes
 source  ~/.config/mutt/crypto
 set from="Chris.Rebischke@archlinux.org"
