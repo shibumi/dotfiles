@@ -4,12 +4,15 @@
     name = Christian Rebischke
     email = chris@nullday.de
     signingkey = DFE2060D
-[credential]
-    helper = cache --timeout=999999
 [commit]
     gpgsign = true
 [tag]
     forceSignAnnotated = true
+[sendemail]
+    smtpencryption = tls
+    smtpserver = smtp.mailbox.org
+    smtpserverport = 587
+    smtpuser = shibumi@mailbox.org
 [alias]
     a = add
     am = am -s
@@ -86,3 +89,5 @@
     fsckobjects = true
 [receive]
     fsckobjects = true
+[credential]
+	helper = "!gopass git-credential $@"
