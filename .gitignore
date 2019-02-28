@@ -69,6 +69,8 @@
 !.vimrc
 !.zprofile
 !.zshrc
+!.zshrc.pre
+!.zshrc.local
 !.gnupg/
 !.gnupg/gpg-agent.conf
 !.gnupg/gpg.conf

@@ -1,32 +1,28 @@
-# Aliases
-alias muttu="mutt -F ~/.config/mutt/muttrc.tu-clausthal"
-alias muttp="mutt -F ~/.config/mutt/muttrc.posteo"
-alias muttm="mutt -F ~/.config/mutt/muttrc.mailbox"
-alias gdb="gdb -q"
-alias mksrcinfo="makepkg --printsrcinfo > .SRCINFO"
-alias mosh="mosh --predict=experimental"
-alias mpv="mpv --audio-display=no"
-alias g="git"
-if [ -x "$(command -v exa)" ]; then
-    alias l="exa"
-    alias ls="exa"
-    alias ll="exa -l --git"
-    alias tree="exa -T"
-    alias gtree="exa -l -T --git"
-fi
+# hikari-zsh -  A pure and minimalistic zsh with special shortcuts
+#
+# Copyright (c) 2019 by Christian Rebischke <chris@nullday.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http: #www.gnu.org/licenses/
+#
+#======================================================================
+# Author: Christian Rebischke
+# Email : chris@nullday.de
+# Github: www.github.com/Shibumi
 
-# Named Directories
-hash -d aur=/home/chris/export/archlinux/aur/
-hash -d community=/home/chris/export/archlinux/svn-community
+# load $HOME/.zshrc.pre to overwrite defaults
+[[ -r ${HOME}/.zshrc.pre ]] && source ${HOME}/.zshrc.pre
 
-# Exports
-export EDITOR=vim
-export PAGER=less
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export IBUS_SOCK="$XDG_RUNTIME_DIR/ibus.socket"
-export TERM="xterm-256color"
-export GOPATH=$HOME/.go
-export GOBIN=$HOME/.go/bin
 # Colors in less
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -404,14 +400,5 @@ bindkey '\e[1;3C' forward-half-word
 # sources
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# added by travis gem
-[ -f /home/chris/.travis/travis.sh ] && source /home/chris/.travis/travis.sh
-
-# base16 configuration
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-[ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
+# load $HOME/.zshrc.local to overwrite this zshrc
+[[ -r ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local

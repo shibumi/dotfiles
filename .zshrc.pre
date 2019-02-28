@@ -1,0 +1,29 @@
+# Aliases
+alias muttu="mutt -F ~/.config/mutt/muttrc.tu-clausthal"
+alias muttp="mutt -F ~/.config/mutt/muttrc.posteo"
+alias muttm="mutt -F ~/.config/mutt/muttrc.mailbox"
+alias gdb="gdb -q"
+alias mksrcinfo="makepkg --printsrcinfo > .SRCINFO"
+alias mosh="mosh --predict=experimental"
+alias mpv="mpv --audio-display=no"
+alias g="git"
+if [ -x "$(command -v exa)" ]; then
+    alias l="exa"
+    alias ls="exa"
+    alias ll="exa -l --git"
+    alias tree="exa -T"
+    alias gtree="exa -l -T --git"
+fi
+
+# Named Directories
+hash -d aur=/home/chris/export/archlinux/aur/
+hash -d community=/home/chris/export/archlinux/svn-community
+
+# Exports
+export EDITOR=vim
+export PAGER=less
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export IBUS_SOCK="$XDG_RUNTIME_DIR/ibus.socket"
+export TERM="xterm-256color"
+export GOPATH=$HOME/.go
+export GOBIN=$HOME/.go/bin
