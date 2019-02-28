@@ -25,9 +25,9 @@
 !.local/share/scripts/disk
 !.local/share/scripts/ethernet
 !.local/share/scripts/external-ip
-!.local/share/scripts//share/scripts-move-to-new-workspace
-!.local/share/scripts//share/scripts-new-workspace
-!.local/share/scripts//share/scriptslock-color
+!.local/share/scripts/i3-move-to-new-workspace
+!.local/share/scripts/i3-new-workspace
+!.local/share/scripts/i3lock-color
 !.local/share/scripts/memory
 !.local/share/scripts/mpd
 !.local/share/scripts/temperature
