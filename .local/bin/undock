@@ -2,7 +2,6 @@
 
 # little script for undocking
 
-
 xrandr --output HDMI1 --off
 xrandr --output HDMI2 --off
 xrandr --output HDMI3 --off

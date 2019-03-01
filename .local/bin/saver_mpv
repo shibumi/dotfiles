@@ -14,11 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-video=`find ~/Videos -type f | sort -R | head -n 1`
+video=$(find ~/Videos -type f | sort -R | head -n 1)
 mpv --no-input-terminal \
-  --really-quiet \
-  --loop \
-  --no-stop-screensaver \
-  --wid="${XSCREENSAVER_WINDOW}" \
-  --no-audio "$video" &
+	--really-quiet \
+	--loop \
+	--no-stop-screensaver \
+	--wid="${XSCREENSAVER_WINDOW}" \
+	--no-audio "$video" &
 exec ./saver_blank

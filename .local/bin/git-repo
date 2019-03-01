@@ -25,54 +25,54 @@
 main='kurisu.nullday.de'
 hosts=('kurisu.nullday.de')
 
-function helpout(){
-    echo "git-repo {COMMAND} <git repository name>"
-    echo ""
-    echo "Commands:"
-    printf "\tcreate\t<git repository name>\n"
-    printf "\tset\t<git repository name>\n"
+function helpout() {
+	echo "git-repo {COMMAND} <git repository name>"
+	echo ""
+	echo "Commands:"
+	printf "\tcreate\t<git repository name>\n"
+	printf "\tset\t<git repository name>\n"
 }
 function set_remote() {
-    if [[ ! $(git remote -v) ]]; then
-        git remote add origin "git@${main}:/home/git/${1}.git"
-    fi
-    for host in "${hosts[@]}"; do
-        ssh -t "${host}" sudo -u git git init --bare "/home/git/${1}.git"
-        git remote set-url origin --push --add "git@${host}:/home/git/${1}.git"
-    done
-    git remote -v
+	if [[ ! $(git remote -v) ]]; then
+		git remote add origin "git@${main}:/home/git/${1}.git"
+	fi
+	for host in "${hosts[@]}"; do
+		ssh -t "${host}" sudo -u git git init --bare "/home/git/${1}.git"
+		git remote set-url origin --push --add "git@${host}:/home/git/${1}.git"
+	done
+	git remote -v
 }
 
 if [ $# -eq 0 ]; then
-    helpout
-    exit 1
+	helpout
+	exit 1
 fi
 
 case $1 in
-    create)
-        if [ $# -eq 2 ]; then
-            mkdir "${2}"
-            printf "\e[32m[+] created %s\e[0m\n" "${2}"
-            cd "${2}" || exit 1
-            printf "\e[32m[+] moved into %s\e[0m\n" "${2}"
-            git init
-            printf "\e[32m[+] initialized git repository\e[0m\n"
-            set_remote "${2}"
-            printf "\e[32m[+] set git remotes\e[0m\n"
-        else
-            printf "\e[31m[-] not enough arguments\e[0m\n"
-        fi
-        ;;
-    set)
-        if [ $# -eq 2 ]; then
-            set_remote "${2}"
-            printf "\e[32m[+] set git remotes\e[0m\n"
-        else
-            printf "\e[31m[-] not enough arguments\e[0m\n"
-        fi
-        ;;
-    *)
-        helpout
-        exit 1
-        ;;
+create)
+	if [ $# -eq 2 ]; then
+		mkdir "${2}"
+		printf "\e[32m[+] created %s\e[0m\n" "${2}"
+		cd "${2}" || exit 1
+		printf "\e[32m[+] moved into %s\e[0m\n" "${2}"
+		git init
+		printf "\e[32m[+] initialized git repository\e[0m\n"
+		set_remote "${2}"
+		printf "\e[32m[+] set git remotes\e[0m\n"
+	else
+		printf "\e[31m[-] not enough arguments\e[0m\n"
+	fi
+	;;
+set)
+	if [ $# -eq 2 ]; then
+		set_remote "${2}"
+		printf "\e[32m[+] set git remotes\e[0m\n"
+	else
+		printf "\e[31m[-] not enough arguments\e[0m\n"
+	fi
+	;;
+*)
+	helpout
+	exit 1
+	;;
 esac

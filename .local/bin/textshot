@@ -25,11 +25,10 @@
 readonly TEXTSHOTDIR="$HOME/.cache/textshot/"
 
 if [[ ! -e "$TEXTSHOTDIR" ]]; then
-    mkdir -p "$TEXTSHOTDIR"
+	mkdir -p "$TEXTSHOTDIR"
 fi
 readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
 readonly TEXTPATH="$TEXTSHOTDIR/text-$TIME.txt"
-xclip -o > "$TEXTPATH"
+xclip -o >"$TEXTPATH"
 readonly OUTPUT="$(fb "$TEXTPATH")"
 notify-send "Text uploaded" "$OUTPUT"
-
