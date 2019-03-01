@@ -159,6 +159,8 @@ endif
 com! -range=% Fb :exec "<line1>,<line2>w !fb -e " . &filetype . " -n " . expand("%:t")
 " Format Python Code
 com! -range=% Yapf :exec "0,$!yapf"
+" Format Bash Code
+com! -range=% Shfmt :exec "0,$!shfmt"
 " fugitive git bindings
 if dein#tap('vim-fugitive')
     nnoremap <leader>ga :Git add %:p<CR><CR>
