@@ -52,7 +52,6 @@ if !exists("g:syntax_on")
     syntax enable
 endif
 filetype plugin indent on
-set ts=4 sts=4 sw=4 et tw=72
 set magic
 set bg=light
 " :W sudo saves the file
@@ -87,9 +86,9 @@ set signcolumn=yes
 au BufRead,BufNewFile PKGBUILD set filetype=PKGBUILD
 au BufRead,BufNewFile *.install set filetype=INSTALL
 au BufRead,BufNewFile Vagrantfile set filetype=Vagrant
-au FileType Vagrant setl ts=2 sts=2 sw=2 tw=78 syntax=ruby
-au FileType PKGBUILD setl ts=2 sts=2 sw=2 et tw=79 syntax=sh
-au FileType INSTALL setl ts=2 sts=2 sw=2 et tw=79 syntax=sh
+au FileType Vagrant setl syntax=ruby
+au FileType PKGBUILD setl syntax=sh
+au FileType INSTALL setl syntax=sh
 
 " ===========
 " = Plugins =
