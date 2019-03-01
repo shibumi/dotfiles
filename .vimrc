@@ -83,6 +83,7 @@ set signcolumn=yes
 " ====================
 " = FileType Options =
 " ====================
+au FileType sh setl et ts=2 sts=2 sw=2 tw=80
 au BufRead,BufNewFile PKGBUILD set filetype=PKGBUILD
 au BufRead,BufNewFile *.install set filetype=INSTALL
 au BufRead,BufNewFile Vagrantfile set filetype=Vagrant
@@ -160,7 +161,7 @@ com! -range=% Fb :exec "<line1>,<line2>w !fb -e " . &filetype . " -n " . expand(
 " Format Python Code
 com! -range=% Yapf :exec "0,$!yapf"
 " Format Bash Code
-com! -range=% Shfmt :exec "0,$!shfmt"
+com! -range=% Shfmt :exec "0,$!shfmt -i 2 -ci"
 " fugitive git bindings
 if dein#tap('vim-fugitive')
     nnoremap <leader>ga :Git add %:p<CR><CR>

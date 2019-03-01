@@ -8,12 +8,12 @@ DISK_SIZE=$(echo $DISK_MAIN | awk '{ print $2 }')
 DISK_USE=$(echo $DISK_MAIN | awk '{ print $3 }')
 
 if [[ $DISK_PERC -ge 90 ]]; then
-	echo -e "\uf0c7 $DISK_USE / $DISK_SIZE\n"
-	echo -e "$RED\n"
+  echo -e "\uf0c7 $DISK_USE / $DISK_SIZE\n"
+  echo -e "$RED\n"
 elif [[ $DISK_PERC -ge 70 ]]; then
-	echo -e "\uf0c7 $DISK_USE / $DISK_SIZE\n"
-	echo -e "$YELLOW\n"
+  echo -e "\uf0c7 $DISK_USE / $DISK_SIZE\n"
+  echo -e "$YELLOW\n"
 else
-	echo -e "\uf0c7 $DISK_USE / $DISK_SIZE\n"
-	echo -e "$GREEN\n"
+  echo -e "\uf0c7 $DISK_USE / $DISK_SIZE\n"
+  echo -e "$GREEN\n"
 fi

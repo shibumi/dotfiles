@@ -23,7 +23,7 @@
 # Github: www.github.com/shibumi
 
 _rofi() {
-	rofi -i -no-levenshtein-sort -lines 8 "$@"
+  rofi -i -no-levenshtein-sort -lines 8 "$@"
 }
 
 input=$(gopass list -f | rofi -lines 8 -dmenu -p "gopass")

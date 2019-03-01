@@ -16,9 +16,9 @@
 
 video=$(find ~/Videos -type f | sort -R | head -n 1)
 mpv --no-input-terminal \
-	--really-quiet \
-	--loop \
-	--no-stop-screensaver \
-	--wid="${XSCREENSAVER_WINDOW}" \
-	--no-audio "$video" &
+  --really-quiet \
+  --loop \
+  --no-stop-screensaver \
+  --wid="${XSCREENSAVER_WINDOW}" \
+  --no-audio "$video" &
 exec ./saver_blank

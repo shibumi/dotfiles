@@ -25,13 +25,13 @@
 set -e
 
 if [ "$(id -u)" != "0" ]; then
-	echo "[+] You need sudo.."
-	exit 1
+  echo "[+] You need sudo.."
+  exit 1
 fi
 
 if [ "$#" -eq 0 ]; then
-	echo "[!] mknspawn <containername> <distribution> <release>"
-	exit 2
+  echo "[!] mknspawn <containername> <distribution> <release>"
+  exit 2
 fi
 
 CONTAINER_NAME="$1"
@@ -41,51 +41,51 @@ MACHINED_DIR="/var/lib/machines/"
 SSH_KEY="/home/chris/.ssh/id_rsa.pub"
 
 case $DISTRIBUTION in
-"ubuntu")
-	echo "[+] Bootstrapping ubuntu/$RELEASE"
-	debootstrap --include dbus,vim,less,tmux,openssl,openssh-server,python "$RELEASE" "$MACHINED_DIR$CONTAINER_NAME" http://archive.ubuntu.com/ubuntu/ >/dev/null
-	echo "[+] Finished Bootstrapping"
-	;;
+  "ubuntu")
+    echo "[+] Bootstrapping ubuntu/$RELEASE"
+    debootstrap --include dbus,vim,less,tmux,openssl,openssh-server,python "$RELEASE" "$MACHINED_DIR$CONTAINER_NAME" http://archive.ubuntu.com/ubuntu/ >/dev/null
+    echo "[+] Finished Bootstrapping"
+    ;;
 
-"debian")
-	echo "[+] Bootstrapping debian/$RELEASE"
-	debootstrap --include dbus,vim,less,tmux,openssl,openssh-server,python "$RELEASE" "$MACHINED_DIR$CONTAINER_NAME" >/dev/null
-	echo "[+] Finished Bootstrapping"
-	;;
+  "debian")
+    echo "[+] Bootstrapping debian/$RELEASE"
+    debootstrap --include dbus,vim,less,tmux,openssl,openssh-server,python "$RELEASE" "$MACHINED_DIR$CONTAINER_NAME" >/dev/null
+    echo "[+] Finished Bootstrapping"
+    ;;
 
-"archlinux")
-	echo "[+] Bootstrapping archlinux/archlinux"
-	mkdir "$MACHINED_DIR$CONTAINER_NAME"
-	pacstrap -c -d "$MACHINED_DIR$CONTAINER_NAME" base openssh >/dev/null
-	;;
-*)
-	echo "[-] Sorry ubuntu and debian only"
-	exit 3
-	;;
+  "archlinux")
+    echo "[+] Bootstrapping archlinux/archlinux"
+    mkdir "$MACHINED_DIR$CONTAINER_NAME"
+    pacstrap -c -d "$MACHINED_DIR$CONTAINER_NAME" base openssh >/dev/null
+    ;;
+  *)
+    echo "[-] Sorry ubuntu and debian only"
+    exit 3
+    ;;
 esac
 
 if [ -d "$MACHINED_DIR$CONTAINER_NAME" ]; then
-	echo "pts/0" >>"$MACHINED_DIR$CONTAINER_NAME/etc/securetty"
-	echo "[+] added 'pts/0' to $MACHINED_DIR$CONTAINER_NAME/etc/securetty"
-	mkdir -m700 "$MACHINED_DIR$CONTAINER_NAME/root/.ssh"
-	echo "[+] created $MACHINED_DIR$CONTAINER_NAME/root/.ssh"
-	install -m600 "$SSH_KEY" "$MACHINED_DIR$CONTAINER_NAME/root/.ssh/authorized_keys"
-	echo "[+] copied $SSH_KEY to $MACHINED_DIR$CONTAINER_NAME/root/.ssh/authorized_keys"
-	machinectl start "$CONTAINER_NAME"
-	echo "[+] started container"
-	sleep 3
-	systemctl -q -M "$CONTAINER_NAME" enable systemd-networkd --now
-	systemctl -q -M "$CONTAINER_NAME" enable systemd-resolved --now
-	if [ "$DISTRIBUTION" == "archlinux" ]; then
-		systemctl -q -M "$CONTAINER_NAME" enable sshd --now
-	else
-		systemctl -q -M "$CONTAINER_NAME" enable ssh --now
-	fi
-	echo "[+] enabled important services"
-	machinectl shell "$CONTAINER_NAME" /bin/passwd -d root
-	echo "[+] removed root password"
+  echo "pts/0" >>"$MACHINED_DIR$CONTAINER_NAME/etc/securetty"
+  echo "[+] added 'pts/0' to $MACHINED_DIR$CONTAINER_NAME/etc/securetty"
+  mkdir -m700 "$MACHINED_DIR$CONTAINER_NAME/root/.ssh"
+  echo "[+] created $MACHINED_DIR$CONTAINER_NAME/root/.ssh"
+  install -m600 "$SSH_KEY" "$MACHINED_DIR$CONTAINER_NAME/root/.ssh/authorized_keys"
+  echo "[+] copied $SSH_KEY to $MACHINED_DIR$CONTAINER_NAME/root/.ssh/authorized_keys"
+  machinectl start "$CONTAINER_NAME"
+  echo "[+] started container"
+  sleep 3
+  systemctl -q -M "$CONTAINER_NAME" enable systemd-networkd --now
+  systemctl -q -M "$CONTAINER_NAME" enable systemd-resolved --now
+  if [ "$DISTRIBUTION" == "archlinux" ]; then
+    systemctl -q -M "$CONTAINER_NAME" enable sshd --now
+  else
+    systemctl -q -M "$CONTAINER_NAME" enable ssh --now
+  fi
+  echo "[+] enabled important services"
+  machinectl shell "$CONTAINER_NAME" /bin/passwd -d root
+  echo "[+] removed root password"
 
 else
-	echo "[-] Target directory $MACHINED_DIR$CONTAINER_NAME does not exist!"
-	exit 4
+  echo "[-] Target directory $MACHINED_DIR$CONTAINER_NAME does not exist!"
+  exit 4
 fi

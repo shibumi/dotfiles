@@ -6,12 +6,12 @@ RAM_CAPACITY=$(free -h | awk '/Mem/{ print $2 }')
 RAM_PERC=$(free | awk '/Mem/{print $3/$2 * 100.0}' | cut -d"." -f1)
 
 if [[ $RAM_PERC -ge 90 ]]; then
-	echo -e "\uF080 $RAM_USAGE / $RAM_CAPACITY\n"
-	echo -e "$RED\n"
+  echo -e "\uF080 $RAM_USAGE / $RAM_CAPACITY\n"
+  echo -e "$RED\n"
 elif [[ $RAM_PERC -ge 50 ]]; then
-	echo -e "\uF080 $RAM_USAGE / $RAM_CAPACITY\n"
-	echo -e "$YELLOW\n"
+  echo -e "\uF080 $RAM_USAGE / $RAM_CAPACITY\n"
+  echo -e "$YELLOW\n"
 else
-	echo -e "\uF080 $RAM_USAGE / $RAM_CAPACITY\n"
-	echo -e "$GREEN\n"
+  echo -e "\uF080 $RAM_USAGE / $RAM_CAPACITY\n"
+  echo -e "$GREEN\n"
 fi

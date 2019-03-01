@@ -23,76 +23,76 @@
 # Github: www.github.com/shibumi
 
 _rofi() {
-	rofi -i -no-levenshtein-sort -lines 8 "$@"
+  rofi -i -no-levenshtein-sort -lines 8 "$@"
 }
 
 input=$(echo "undock|undock and lock|lock|dockhome|dockwork|quit i3|reboot|poweroff" | _rofi -sep '|' -dmenu -p "systemdialog:")
 
 case $input in
-"undock")
-	xrandr --output HDMI3 --off
-	xrandr --output DP1 --off
-	xrandr --output LVDS1 --auto
-	xrandr --output VGA1 --off
-	;;
+  "undock")
+    xrandr --output HDMI3 --off
+    xrandr --output DP1 --off
+    xrandr --output LVDS1 --auto
+    xrandr --output VGA1 --off
+    ;;
 
-"undock and lock")
-	xrandr --output HDMI3 --off
-	xrandr --output DP1 --off
-	xrandr --output LVDS1 --auto
-	xrandr --output VGA1 --off
-	#i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
-	env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
-	;;
+  "undock and lock")
+    xrandr --output HDMI3 --off
+    xrandr --output DP1 --off
+    xrandr --output LVDS1 --auto
+    xrandr --output VGA1 --off
+    #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
+    env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
+    ;;
 
-"lock")
-	#i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
-	env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
-	;;
+  "lock")
+    #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
+    env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
+    ;;
 
-"dockhome")
-	#/usr/local/bin/dockhome
-	xrandr --output HDMI3 --mode 1920x1080 --left-of LVDS1
-	xrandr --output LVDS1 --off
-	xrandr --output VGA1 --mode 1920x1080 --right-of HDMI3
-	# setxkbmap de us
-	;;
+  "dockhome")
+    #/usr/local/bin/dockhome
+    xrandr --output HDMI3 --mode 1920x1080 --left-of LVDS1
+    xrandr --output LVDS1 --off
+    xrandr --output VGA1 --mode 1920x1080 --right-of HDMI3
+    # setxkbmap de us
+    ;;
 
-"dockwork")
-	#/usr/local/bin/dockwork
-	xrandr --output DP1 --mode 1920x1200 --left-of LVDS1
-	xrandr --output LVDS1 --off
-	xrandr --output VGA1 --mode 1920x1200 --left-of DP1
-	# setxkbmap de us
-	;;
+  "dockwork")
+    #/usr/local/bin/dockwork
+    xrandr --output DP1 --mode 1920x1200 --left-of LVDS1
+    xrandr --output LVDS1 --off
+    xrandr --output VGA1 --mode 1920x1200 --left-of DP1
+    # setxkbmap de us
+    ;;
 
-"quit i3")
-	case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to quit:") in
-	"yes")
-		i3-msg exit
-		;;
-	"no") ;;
+  "quit i3")
+    case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to quit:") in
+      "yes")
+        i3-msg exit
+        ;;
+      "no") ;;
 
-	esac
-	;;
+    esac
+    ;;
 
-"reboot")
-	case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to reboot:") in
-	"yes")
-		systemctl reboot
-		;;
-	"no") ;;
+  "reboot")
+    case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to reboot:") in
+      "yes")
+        systemctl reboot
+        ;;
+      "no") ;;
 
-	esac
-	;;
+    esac
+    ;;
 
-"poweroff")
-	case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to poweroff:") in
-	"yes")
-		systemctl poweroff
-		;;
-	"no") ;;
+  "poweroff")
+    case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to poweroff:") in
+      "yes")
+        systemctl poweroff
+        ;;
+      "no") ;;
 
-	esac
-	;;
+    esac
+    ;;
 esac
