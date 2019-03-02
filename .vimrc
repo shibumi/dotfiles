@@ -24,7 +24,7 @@ try
       call dein#add('w0rp/ale')
       call dein#add('fatih/vim-go')
       call dein#add('Shougo/neosnippet.vim')
-      call dein#add('Shougo/neosnippet-snippets')
+      call dein#add('shibumi/neosnippet-snippets')
       call dein#add('airblade/vim-gitgutter')
       call dein#add('vim-airline/vim-airline')
       call dein#add('vim-airline/vim-airline-themes')
