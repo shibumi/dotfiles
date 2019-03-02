@@ -6,8 +6,6 @@
 !.local/bin/screenshot
 !.local/bin/textshot
 !.local/bin/videoshot
-!.local/bin/dockhome
-!.local/bin/dockwork
 !.local/bin/git-repo
 !.local/bin/saver_mpv
 !.local/bin/undock
