@@ -19,7 +19,7 @@ try
       call dein#add(s:dein_repo_path)
       call dein#add('Shougo/deoplete.nvim')
       call dein#add('Shougo/denite.nvim')
-      call dein#add('tpope/vim-fugitive', { 'rev': 'cde670ee81e4fd0945e97111d08a901788c3922b' })
+      call dein#add('tpope/vim-fugitive')
       call dein#add('Raimondi/delimitMate')
       call dein#add('w0rp/ale')
       call dein#add('fatih/vim-go')
