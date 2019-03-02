@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # rofi-systemdialog - systemdialog with rofi
 #
@@ -26,6 +26,11 @@ _rofi() {
   rofi -i -no-levenshtein-sort -lines 8 "$@"
 }
 
+restart_dunst() {
+  systemctl --user restart dunst
+  notify-send "dunst restarted"
+}
+
 input=$(echo "undock|undock and lock|lock|dockhome|dockwork|quit i3|reboot|poweroff" | _rofi -sep '|' -dmenu -p "systemdialog:")
 
 case $input in
@@ -34,6 +39,7 @@ case $input in
     xrandr --output DP1 --off
     xrandr --output LVDS1 --auto
     xrandr --output VGA1 --off
+    restart_dunst
     ;;
 
   "undock and lock")
@@ -41,29 +47,26 @@ case $input in
     xrandr --output DP1 --off
     xrandr --output LVDS1 --auto
     xrandr --output VGA1 --off
-    #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
+    restart_dunst
     env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
     ;;
 
   "lock")
-    #i3lock -p win -u -t -i /usr/share/i3lock/windows_10_small.png
     env XSECURELOCK_SAVER=/home/chris/.local/bin/saver_mpv XSECURELOCK_WANT_FIRST_KEYPRESS=1 xsecurelock
     ;;
 
   "dockhome")
-    #/usr/local/bin/dockhome
     xrandr --output HDMI3 --mode 1920x1080 --left-of LVDS1
     xrandr --output LVDS1 --off
     xrandr --output VGA1 --mode 1920x1080 --right-of HDMI3
-    # setxkbmap de us
+    restart_dunst
     ;;
 
   "dockwork")
-    #/usr/local/bin/dockwork
     xrandr --output DP1 --mode 1920x1200 --left-of LVDS1
     xrandr --output LVDS1 --off
     xrandr --output VGA1 --mode 1920x1200 --left-of DP1
-    # setxkbmap de us
+    restart_dunst
     ;;
 
   "quit i3")
@@ -96,3 +99,5 @@ case $input in
     esac
     ;;
 esac
+
+# vim: :set et sw=2 ts=2 tw=80:
