@@ -3,7 +3,6 @@
 !.local
 !.local/bin/
 !.local/bin/mknspawn
-!.local/bin/rofi-systemdialog
 !.local/bin/screenshot
 !.local/bin/textshot
 !.local/bin/videoshot
@@ -27,6 +26,7 @@
 !.local/share/scripts/external-ip
 !.local/share/scripts/i3-move-to-new-workspace
 !.local/share/scripts/i3-new-workspace
+!.local/share/scripts/rofi-systemdialog
 !.local/share/scripts/i3lock-color
 !.local/share/scripts/memory
 !.local/share/scripts/mpd
@@ -69,7 +69,6 @@
 !.vimrc
 !.zprofile
 !.zshrc
-!.zshrc.pre
 !.zshrc.local
 !.gnupg/
 !.gnupg/gpg-agent.conf
