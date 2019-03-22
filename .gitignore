@@ -76,3 +76,4 @@
 !.ssh/
 !.ssh/config
 !.ssh/id_rsa.pub
+!.xinitrc
