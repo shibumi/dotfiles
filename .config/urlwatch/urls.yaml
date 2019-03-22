@@ -65,7 +65,7 @@ command: 'git ls-remote --tags https://github.com/greenbone/gvm'
 name: 'openvas-scanner (git)'
 command: 'git ls-remote --tags https://github.com/greenbone/openvas-scanner'
 ---
-name: 'packer-io (github)'
+name: 'packer (github)'
 command: 'git ls-remote --tags https://github.com/hashicorp/packer'
 ---
 name: 'playerctl (github)'
@@ -116,7 +116,7 @@ command: 'git ls-remote --tags https://github.com/Tencent/rapidjson'
 name: 'ruby-shadow (github)'
 command: 'git ls-remote --tags https://github.com/apalmblad/ruby-shadow'
 ---
-name: 'puppet (github)'
+name: 'auppet (github)'
 command: 'git ls-remote --tags https://github.com/puppetlabs/puppet'
 ---
 name: 'facter (github)'
@@ -139,5 +139,18 @@ command: 'git ls-remote --tags https://github.com/hercules-team/ruby-augeas'
 ---
 name: 'alacritty (github)'
 command: 'git ls-remote --tags https://github.com/jwilm/alacritty'
-...
-
+---
+name: 'gopass (github)'
+command: 'git ls-remote --tags https://github.com/gopasspw/gopass'
+---
+name: 'restic (github)'
+command: 'git ls-remote --tags https://github.com/restic/restic'
+---
+name: 'shfmt (github)'
+command: 'git ls-remote --tags https://github.com/mvdan/sh'
+---
+name: 'xsecurelock (github)'
+command: 'git ls-remote --tags https://github.com/google/xsecurelock'
+---
+name: 'consul-template (github)'
+command: 'git ls-remote --tags https://github.com/hashicorp/consul-template'
