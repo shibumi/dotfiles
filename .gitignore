@@ -77,3 +77,4 @@
 !.ssh/config
 !.ssh/id_rsa.pub
 !.xinitrc
+!.config/chromium-flags.conf
