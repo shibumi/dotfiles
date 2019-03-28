@@ -1,0 +1,70 @@
+/* Arc Dark theme */
+
+/* Link hint boxes */
+div > .vimiumHintMarker {
+  background: #383c4a;
+  font-size: 12px;
+  border: 0.25em solid #383c4a;
+  border-radius: 0.68em;
+  box-shadow: 0em 0.1em 0.6em 0.1em rgba(0, 0, 0, 0.4);
+}
+
+/* Link hint text */
+div > .vimiumHintMarker span {
+  color: #e2e3e7;
+  font-size: inherit;
+  text-shadow: none;
+}
+
+/* Link hint matching characters */
+div > .vimiumHintMarker > .matchingCharacter {
+  color: #5294e2;
+}
+
+input#vomnibarInput.vimiumReset {
+	color: #FFF !important;
+  background-color: #111 !important;
+}
+
+#vomnibar {
+   border-color: black;
+   background-color: black;
+}
+
+#vomnibar .vomnibarSearchArea {
+   background-color: #222;
+   border-bottom: #3f3f3f;
+}
+
+#vomnibar input {
+   border-color: #393939;
+}
+
+#vomnibar ul {
+    background-color: #222;
+}
+
+#vomnibar li {
+   border-bottom: #3f3f3f;
+}
+
+#vomnibar li .vomnibarUrl {
+   color: #5294e2;
+}
+
+#vomnibar li .vomnibarMatch {
+   color: white;
+}
+
+#vomnibar li.vomnibarSelected {
+    background-color: #181D24;
+}
+
+#vomnibar li em .vomnibarMatch, #vomnibar li .vomnibarTitle .vomnibarMatch {
+   color: white;
+}
+
+#vomnibar li em, #vomnibar li .vomnibarTitle {
+   color: #ddd;
+}
+

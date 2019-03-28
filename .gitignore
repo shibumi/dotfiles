@@ -78,3 +78,5 @@
 !.ssh/id_rsa.pub
 !.xinitrc
 !.config/chromium-flags.conf
+!.config/vimium
+!.config/vimium/vimium.css
