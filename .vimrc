@@ -90,6 +90,7 @@ au BufRead,BufNewFile Vagrantfile set filetype=Vagrant
 au FileType Vagrant setl syntax=ruby
 au FileType PKGBUILD setl syntax=sh
 au FileType INSTALL setl syntax=sh
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " ===========
 " = Plugins =
