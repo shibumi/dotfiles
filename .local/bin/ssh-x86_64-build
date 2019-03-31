@@ -1,0 +1,83 @@
+#!/bin/bash
+
+DEFAULT_SERVER="dragon.archlinux.org"
+
+source ./PKGBUILD
+
+function helpout() {
+  echo "ssh-x86_64-build {OPTION}"
+  echo ""
+  echo "Options"
+  printf "\t-h, --help\tprint this helpout\n"
+}
+
+function remote_build() {
+  if ssh "$DEFAULT_SERVER" "test -d $pkgname || mkdir $pkgname" &>/dev/null; then
+    printf "\e[32m[+] created $pkgname directory on $DEFAULT_SERVER\n"
+  else
+    printf "\e[31m[-] failed to create directory $pkgname on $DEFAULT_SERVER\n"
+  fi
+
+  printf "\e[32m[+] copy package directory to $DEFAULT_SERVER\n"
+  if scp -q ./* "$DEFAULT_SERVER":"$pkgname"/; then
+    printf "\e[32m[+] copied package directory to $DEFAULT_SERVER:$pkgname\n"
+  else
+    printf "\e[31m[-] failed to copy package directory to $DEFAULT_SERVER:$pkgname\n"
+  fi
+
+  if ssh "$DEFAULT_SERVER" "cd $pkgname && updpkgsums" &>/dev/null; then
+    printf "\e[32m[+] updated checksums\n"
+  else
+    printf "\e[31m[-] failed creating checksums\n"
+  fi
+
+  printf "\e[32m[+] start extra-x86_64-build on $DEFAULT_SERVER\n"
+  if ssh "$DEFAULT_SERVER" "cd $pkgname && extra-x86_64-build" &>/dev/null; then
+    printf "\e[32m[+] build successful\n"
+    BUILD_OK=true
+  else
+    printf "\e[31m[-] build failed\n"
+  fi
+
+  if scp -q "$DEFAULT_SERVER":"$pkgname/$pkgname-$pkgver-$pkgrel-x86_64-prepare.log" .; then
+    printf "\e[32m[+] downloaded $pkgname/$pkgname-$pkgver-$pkgrel-x86_64-prepare.log\n"
+  else
+    printf "\e[31m[-] failed to download $pkgname/$pkgname-$pkgver-$pkgrel-x86_64-prepare.log\n"
+  fi
+
+  if scp -q "$DEFAULT_SERVER":"$pkgname/$pkgname-$pkgver-$pkgrel-x86_64-build.log" .; then
+    printf "\e[32m[+] downloaded $pkgname/$pkgname-$pkgver-$pkgrel-x86_64-build.log\n"
+  else
+    printf "\e[31m[-] failed to download $pkgname/$pkgname-$pkgver-$pkgrel-x86_64-build.log\n"
+  fi
+
+  if scp -q "$DEFAULT_SERVER":"$pkgname/$pkgname-$pkgver-$pkgrel-x86_64-package.log" .; then
+    printf "\e[32m[+] downloaded $pkgname/$pkgname-$pkgver-$pkgrel-x86_64-package.log\n"
+  else
+    printf "\e[31m[-] failed to download $pkgname/$pkgname-$pkgver-$pkgrel-x86_64-package.log\n"
+  fi
+
+  if [[ "$BUILD_OK" == "true" ]]; then
+    if scp -q "$DEFAULT_SERVER":"$pkgname/$pkgname-$pkgver-$pkgrel-x86_64.pkg.tar.xz" .; then
+      printf "\e[32m[+] downloaded $pkgname/$pkgname-$pkgver-$pkgrel-x86_64.pkg.tar.xz\n"
+    else
+      printf "\e[31m[-] failed to download $pkgname/$pkgname-$pkgver-$pkgrel-x86_64.pkg.tar.xz\n"
+    fi
+
+    if scp -q "$DEFAULT_SERVER":"$pkgname/$pkgname-$pkgver-$pkgrel-x86_64.pkg.tar.xz-namcap.log" .; then
+      printf "\e[32m[+] downloaded $pkgname/$pkgname-$pkgver-$pkgrel-x86_64.pkg.tar.xz-namcap.log\n"
+    else
+      printf "\e[31m[-] failed to download $pkgname/$pkgname-$pkgver-$pkgrel-x86_64.pkg.tar.xz-namcap.log\n"
+    fi
+  fi
+}
+
+case $1 in
+  -h|--help)
+    helpout
+    exit 1
+    ;;
+  *)
+    remote_build
+    ;;
+esac

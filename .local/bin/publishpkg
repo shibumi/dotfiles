@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DEFAULT_SERVER="repos.archlinux.org"
+
+ssh "$DEFAULT_SERVER" "/community/db-update"
