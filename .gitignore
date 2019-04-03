@@ -16,6 +16,8 @@
 !.local/share/
 !.local/share/scripts/
 !.local/share/scripts/ssh_give_pass.sh
+!.local/share/scripts/ssh_give_pass
+!.local/share/scripts/musik-sammler
 !.local/share/scripts/
 !.local/share/scripts/battery
 !.local/share/scripts/colors
