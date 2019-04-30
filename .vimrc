@@ -7,7 +7,11 @@ endif
 if !exists($HOME)
     let $HOME=expand('~')
 endif
-let s:dein_base = $HOME . '/.vim/bundles'
+if has('nvim')
+	let s:dein_base = $HOME . '/.local/share/nvim/bundles'
+else
+	let s:dein_base = $HOME . '/.vim/bundles'
+endif
 let s:dein_repo_url = 'https://github.com/Shougo/dein.vim'
 let s:dein_repo_path = s:dein_base . '/repos/github.com/Shougo/dein.vim'
 let &runtimepath.=','.s:dein_repo_path
@@ -67,7 +71,11 @@ set relativenumber
 set showmatch
 set showcmd
 set incsearch
-set ttyfast
+if !has('nvim')
+	set ttyfast
+else
+	set guicursor=
+endif
 " We are using a powerline.. so we don't need this
 set showmode!
 set encoding=utf-8
@@ -96,7 +104,9 @@ au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " ===========
 " = Plugins =
 " ===========
-packadd matchit
+if !has('nvim')
+	packadd matchit
+endif
 if dein#tap('vim-airline')
     let g:airline#extensions#tabline#enabled = 1
     let g:airline_powerline_fonts = 0
