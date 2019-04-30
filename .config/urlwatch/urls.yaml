@@ -116,7 +116,7 @@ command: 'git ls-remote --tags https://github.com/Tencent/rapidjson'
 name: 'ruby-shadow (github)'
 command: 'git ls-remote --tags https://github.com/apalmblad/ruby-shadow'
 ---
-name: 'auppet (github)'
+name: 'puppet (github)'
 command: 'git ls-remote --tags https://github.com/puppetlabs/puppet'
 ---
 name: 'facter (github)'
