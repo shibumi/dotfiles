@@ -37,8 +37,6 @@
 !.local/share/scripts/wifi
 !.local/share/scripts/wireguard
 !.config
-!.config/nvim/
-!.config/nvim/init.vim
 !.config/i3/
 !.config/mutt/
 !.config/termite/
