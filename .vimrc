@@ -63,6 +63,7 @@ set nohlsearch
 set autoindent
 set smartindent
 set number
+set relativenumber
 set showmatch
 set showcmd
 set incsearch
@@ -128,6 +129,7 @@ highlight StatusLine ctermbg=black ctermfg=grey
 highlight VertSplit ctermbg=black ctermfg=green
 highlight Visual ctermbg=green ctermfg=black
 highlight LineNr ctermbg=black ctermfg=darkgrey
+highlight CursorLineNr ctermbg=black ctermfg=darkgrey
 highlight Search ctermbg=green ctermfg=black
 highlight IncSearch ctermbg=green ctermfg=black
 highlight DiffAdd ctermbg=black ctermfg=green
