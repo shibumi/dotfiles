@@ -6,6 +6,7 @@ alias gdb="gdb -q"
 alias mksrcinfo="makepkg --printsrcinfo > .SRCINFO"
 alias mosh="mosh --predict=experimental"
 alias mpv="mpv --audio-display=no"
+alias vim="nvim"
 alias g="git"
 if [ -x "$(command -v exa)" ]; then
     alias l="exa"
@@ -20,7 +21,7 @@ hash -d aur=/home/chris/export/archlinux/aur/
 hash -d community=/home/chris/export/archlinux/svn-community
 
 # Exports
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER=less
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export IBUS_SOCK="$XDG_RUNTIME_DIR/ibus.socket"
