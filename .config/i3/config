@@ -31,9 +31,12 @@ new_window pixel 1
 new_float pixel 1
 hide_edge_borders smart
 
-gaps inner 10
-gaps outer 0
-smart_gaps on
+# Enable the following for i3-gaps
+# gaps inner 10
+# gaps outer 0
+# smart_gaps on
+
+
 # Custom commands
 bindsym $mod+Shift+p exec "rofi-gopass"
 bindsym $mod+Shift+Up exec "pamixer -i 5 && pkill -RTMIN+10 i3blocks"
@@ -192,7 +195,7 @@ client.background       $base07
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3blocks
+    status_command exec "/home/chris/go/src/ryoukai/ryoukai"
     position top
     tray_output none
     colors {
