@@ -83,3 +83,4 @@
 !.config/chromium-flags.conf
 !.config/vimium
 !.config/vimium/vimium.css
+!.tmux.conf
