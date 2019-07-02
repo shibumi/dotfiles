@@ -48,7 +48,7 @@ color index brightyellow  white   "~p ~N !~T !~F !~P"
 color index yellow        cyan    "~p ~T !~F !~P"
 color index yellow        red     "~p ~F !~P"
 # messages from me
-color index green         default "~P !~N !~T !~F"
+color index blue         default "~P !~N !~T !~F"
 color index green         white   "~P ~N !~T !~F"
 color index green         cyan    "~P ~T !~F"
 color index green         red     "~P ~F"
