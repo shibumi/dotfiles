@@ -27,8 +27,8 @@ font pango:inconsolata 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-new_window pixel 1
-new_float pixel 1
+default_border pixel 1
+default_floating_border pixel 1
 hide_edge_borders smart
 
 # Enable the following for i3-gaps
