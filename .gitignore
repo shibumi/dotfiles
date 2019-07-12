@@ -86,3 +86,5 @@
 !.tmux.conf
 !.config/mako/
 !.config/mako/config
+!.config/alacritty
+!.config/alacritty/alacritty.yml
