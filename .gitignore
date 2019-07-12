@@ -84,3 +84,5 @@
 !.config/vimium
 !.config/vimium/vimium.css
 !.tmux.conf
+!.config/mako/
+!.config/mako/config

@@ -41,3 +41,9 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
+
+# Exec sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+	exec mako
+fi

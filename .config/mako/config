@@ -1,0 +1,8 @@
+font=Inconsolata 14
+background-color=#151718
+text-color=#9FCA56
+border-color=#151718
+
+[urgency=high]
+text-color=#CD3F45
+
