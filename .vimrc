@@ -73,8 +73,6 @@ set showcmd
 set incsearch
 if !has('nvim')
 	set ttyfast
-else
-	set guicursor=
 endif
 " We are using a powerline.. so we don't need this
 set showmode!
