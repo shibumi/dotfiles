@@ -1,4 +1,4 @@
-set editor='vim'
+set editor='nvim'
 set realname="Christian Rebischke"
 set my_name="Christian Rebischke"
 set imap_user="shibumi@mailbox.org"
