@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+#
+# videoshot-wl - script for capturing videos (wayland-ready)
+#
+# Copyright (c) 2018 by Christian Rebischke <chris@nullday.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http: #www.gnu.org/licenses/
+#
+#======================================================================
+# Author: Christian Rebischke
+# Email : chris@nullday.de
+# Github: www.github.com/shibumi
+
+readonly VIDEOSHOTDIR="$HOME/.cache/videoshot"
+
+if [[ ! -e $VIDEOSHOTDIR ]]; then
+  mkdir -p "$VIDEOSHOTDIR"
+fi
+
+readonly PIDPATH="$VIDEOSHOTDIR/videoshot.pid"
+readonly RESOURCEPATH="$VIDEOSHOTDIR/videoshot.txt"
+
+if [[ ! -f "$PIDPATH" ]]; then
+  readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
+  readonly VIDPATH="$VIDEOSHOTDIR/rec-$TIME.mp4"
+  (
+    wf-recorder -g "$(slurp)" -f "$VIDPATH" &
+    echo "$!" >"$PIDPATH"
+    echo "$VIDPATH" >"$RESOURCEPATH"
+    notify-send "Start recording" "$VIDPATH"
+    readonly PID="$(cat $PIDPATH)"
+    wait "$PID"
+    readonly VIDPATH="$(cat $RESOURCEPATH)"
+    if [ ! -f "$VIDPATH" ]; then
+      notify-send "Recording aborted"
+    else
+      readonly OUTPUT="$(fb "$VIDPATH")"
+      notify-send "Video uploaded" "$OUTPUT"
+    fi
+    rm "$PIDPATH"
+    rm "$RESOURCEPATH"
+  ) &
+else
+  readonly PID="$(cat $PIDPATH)"
+  kill -SIGINT "$PID"
+fi

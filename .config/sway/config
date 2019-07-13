@@ -24,6 +24,10 @@ font pango:inconsolata 8
 input * xkb_layout "de"
 input * xkb_variant "us"
 
+# Setting sway specific executions
+exec mako
+exec swaybg -c "#151718"
+
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -43,9 +47,9 @@ hide_edge_borders smart
 
 # Custom commands
 bindsym $mod+Shift+p exec "rofi-gopass-wl"
-bindsym $mod+Shift+Up exec "pamixer -i 5 && pkill -RTMIN+10 i3blocks"
-bindsym $mod+Shift+Down exec "pamixer -d 5 && pkill -RTMIN+10 i3blocks"
-bindsym $mod+Shift+m exec "pamixer -t && pkill -RTMIN+10 i3blocks"
+bindsym $mod+Shift+Up exec "pamixer -i 5"
+bindsym $mod+Shift+Down exec "pamixer -d 5"
+bindsym $mod+Shift+m exec "pamixer -t"
 bindsym Print exec "screenshot-wl"
 bindsym Shift+Print exec "textshot-wl"
 bindsym Shift+$mod+Print exec "videoshot-wl"
@@ -161,7 +165,7 @@ bindsym $mod+Shift+0 move container to workspace 十
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 
-bindsym $mod+Shift+q exec "/home/chris/.local/share/scripts/rofi-systemdialog"
+bindsym $mod+Shift+q exec "/home/chris/.local/share/scripts/rofi-systemdialog-wl"
 bindsym $mod+Shift+r reload
 
 # resize windows
