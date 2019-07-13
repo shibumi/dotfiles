@@ -90,3 +90,5 @@
 !.config/alacritty/alacritty.yml
 !.config/sway
 !.config/sway/config
+!.config/swaylock
+!.config/swaylock/config
