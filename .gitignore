@@ -88,3 +88,5 @@
 !.config/mako/config
 !.config/alacritty
 !.config/alacritty/alacritty.yml
+!.config/sway
+!.config/sway/config
