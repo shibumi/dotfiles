@@ -42,13 +42,13 @@ hide_edge_borders smart
 
 
 # Custom commands
-bindsym $mod+Shift+p exec "rofi-gopass"
+bindsym $mod+Shift+p exec "rofi-gopass-wl"
 bindsym $mod+Shift+Up exec "pamixer -i 5 && pkill -RTMIN+10 i3blocks"
 bindsym $mod+Shift+Down exec "pamixer -d 5 && pkill -RTMIN+10 i3blocks"
 bindsym $mod+Shift+m exec "pamixer -t && pkill -RTMIN+10 i3blocks"
-bindsym Print exec "screenshot"
-bindsym Shift+Print exec "textshot"
-bindsym Shift+$mod+Print exec "videoshot"
+bindsym Print exec "screenshot-wl"
+bindsym Shift+Print exec "textshot-wl"
+bindsym Shift+$mod+Print exec "videoshot-wl"
 bindsym $mod+Shift+s exec "/home/chris/.local/share/scripts/musik-sammler"
 bindsym XF86AudioPlay exec "mpc toggle"
 bindsym XF86AudioNext exec "mpc next"
@@ -162,8 +162,7 @@ bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 
 bindsym $mod+Shift+q exec "/home/chris/.local/share/scripts/rofi-systemdialog"
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e reload
+bindsym $mod+Shift+r reload
 
 # resize windows
 bindsym $mod+Shift+h resize shrink width 10px or 10 ppt
