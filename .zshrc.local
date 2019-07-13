@@ -29,6 +29,7 @@ export IBUS_SOCK="$XDG_RUNTIME_DIR/ibus.socket"
 export TERM="xterm-256color"
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # added by travis gem
 [ -f /home/chris/.travis/travis.sh ] && source /home/chris/.travis/travis.sh
