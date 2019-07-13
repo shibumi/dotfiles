@@ -46,4 +46,5 @@ export PROJECT_HOME=$HOME/Devel
 if [ "$(tty)" = "/dev/tty1" ]; then
 	exec sway
 	exec mako
+	exec swaybg -c "#151718"
 fi
