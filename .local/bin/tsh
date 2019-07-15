@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh "$1" -t "tmux -u attach -t default || tmux -u new -s default"
