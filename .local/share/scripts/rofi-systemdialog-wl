@@ -26,47 +26,14 @@ _rofi() {
   rofi -i -no-levenshtein-sort -lines 8 "$@"
 }
 
-restart_dunst() {
-  systemctl --user restart dunst
-  notify-send "dunst restarted"
-}
-
-input=$(echo "undock|undock and lock|lock|dockhome|dockwork|quit i3|reboot|poweroff" | _rofi -sep '|' -dmenu -p "systemdialog:")
+input=$(echo "lock|quit sway|reboot|poweroff" | _rofi -sep '|' -dmenu -p "systemdialog:")
 
 case $input in
-  "undock")
-    xrandr --output HDMI3 --off
-    xrandr --output DP1 --off
-    xrandr --output LVDS1 --auto
-    xrandr --output VGA1 --off
-    ;;
-
-  "undock and lock")
-    xrandr --output HDMI3 --off
-    xrandr --output DP1 --off
-    xrandr --output LVDS1 --auto
-    xrandr --output VGA1 --off
-    swaylock
-    ;;
-
   "lock")
     swaylock
     ;;
 
-  "dockhome")
-    xrandr --output HDMI3 --mode 1920x1080 --left-of LVDS1
-    xrandr --output LVDS1 --off
-    xrandr --output VGA1 --mode 1920x1080 --right-of HDMI3
-    restart_dunst
-    ;;
-
-  "dockwork")
-    xrandr --output DP1 --mode 1920x1200 --left-of LVDS1
-    xrandr --output LVDS1 --off
-    xrandr --output VGA1 --mode 1920x1200 --left-of DP1
-    ;;
-
-  "quit i3")
+  "quit sway")
     case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to quit:") in
       "yes")
         sway-msg exit
