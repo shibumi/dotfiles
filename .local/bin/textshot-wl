@@ -29,6 +29,7 @@ if [[ ! -e "$TEXTSHOTDIR" ]]; then
 fi
 readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
 readonly TEXTPATH="$TEXTSHOTDIR/text-$TIME.txt"
-wl-paste -o >"$TEXTPATH"
+wl-paste >"$TEXTPATH"
 readonly OUTPUT="$(fb "$TEXTPATH")"
+wl-copy "$OUTPUT"
 notify-send "Text uploaded" "$OUTPUT"

@@ -46,6 +46,7 @@ if [[ ! -f "$PIDPATH" ]]; then
       notify-send "Recording aborted"
     else
       readonly OUTPUT="$(fb "$VIDPATH")"
+      wl-copy "$OUTPUT"
       notify-send "Video uploaded" "$OUTPUT"
     fi
     rm "$PIDPATH"
