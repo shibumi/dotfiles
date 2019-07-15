@@ -89,8 +89,8 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Multi Monitor Support
-bindsym $mod+Shift+greater move container to output right
-bindsym $mod+Shift+less move container to output left
+bindsym $mod+Shift+period move container to output right
+bindsym $mod+Shift+comma move container to output left
 bindsym $mod+period focus output right
 bindsym $mod+comma focus output left
 # alternatively, you can use the cursor keys:
