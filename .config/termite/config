@@ -4,7 +4,6 @@ allow_bold   = true
 cursor_blink = off
 browser      = chromium
 audible_bell = false
-cursor_shape = ibeam
 
 [colors]
 # Base16 Seti UI
