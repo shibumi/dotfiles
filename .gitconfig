@@ -45,6 +45,7 @@
 	pl = pull
 	ph = push
 	pht = push --tags
+	pr = "!f() { git fetch origin +refs/pull/*/merge:refs/remotes/origin/pr/* && git checkout origin/pr/"$1"; }; f"
 	rb = rebase
 	rbi = rebase -i --autosquash
 	rst = reset
