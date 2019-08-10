@@ -4,6 +4,7 @@ allow_bold   = true
 cursor_blink = off
 browser      = chromium
 audible_bell = false
+scrollback_lines = 10000
 
 [colors]
 # Base16 Seti UI
