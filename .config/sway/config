@@ -57,6 +57,9 @@ bindsym $mod+Shift+s exec "/home/chris/.local/share/scripts/musik-sammler"
 bindsym XF86AudioPlay exec "mpc toggle"
 bindsym XF86AudioNext exec "mpc next"
 bindsym XF86AudioPrev exec "mpc prev"
+bindsym XF86AudioMute exec "pamixer -t"
+bindsym XF86AudioLowerVolume exec "pamixer -d 5"
+bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
 
 # start a terminal
 bindsym $mod+Return exec "termite"
