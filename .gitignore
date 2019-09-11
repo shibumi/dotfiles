@@ -19,6 +19,8 @@
 !.local/bin/publishpkg
 !.local/bin/tsh
 !.local/share/
+!.local/share/udev/
+!.local/share/udev/99-backlight.rules
 !.local/share/scripts/
 !.local/share/scripts/ssh_give_pass
 !.local/share/scripts/musik-sammler
