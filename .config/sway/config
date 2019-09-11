@@ -47,8 +47,6 @@ hide_edge_borders smart
 
 # Custom commands
 bindsym $mod+Shift+p exec "rofi-gopass-wl"
-bindsym $mod+Shift+Up exec "pamixer -i 5"
-bindsym $mod+Shift+Down exec "pamixer -d 5"
 bindsym $mod+Shift+m exec "pamixer -t"
 bindsym Print exec "screenshot-wl"
 bindsym Shift+Print exec "textshot-wl"
@@ -60,6 +58,9 @@ bindsym XF86AudioPrev exec "mpc prev"
 bindsym XF86AudioMute exec "pamixer -t"
 bindsym XF86AudioLowerVolume exec "pamixer -d 5"
 bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
+bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
+bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
+bindsym XF86ScreenSaver exec "swaylock"
 
 # start a terminal
 bindsym $mod+Return exec "termite"

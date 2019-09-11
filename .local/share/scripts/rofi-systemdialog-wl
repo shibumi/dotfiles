@@ -36,7 +36,7 @@ case $input in
   "quit sway")
     case $(echo "yes|no" | _rofi -sep '|' -dmenu -p "do you really want to quit:") in
       "yes")
-        sway-msg exit
+        swaymsg exit
         ;;
       "no") ;;
 
