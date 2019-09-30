@@ -44,6 +44,7 @@
 	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
 	pl = pull
 	ph = push
+	phf = push --force-with-lease
 	pht = push --tags
 	pr = "!f() { git fetch origin +refs/pull/*/merge:refs/remotes/origin/pr/* && git checkout origin/pr/"$1"; }; f"
 	rb = rebase
