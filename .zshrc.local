@@ -10,19 +10,19 @@ alias mpv="mpv --audio-display=no"
 alias vim="nvim"
 alias g="git"
 if [ -x "$(command -v exa)" ]; then
-    alias l="exa"
-    alias ls="exa"
-    alias ll="exa -l --git"
-    alias tree="exa -T"
-    alias gtree="exa -l -T --git"
+  alias l="exa"
+  alias ls="exa"
+  alias ll="exa -l --git"
+  alias tree="exa -T"
+  alias gtree="exa -l -T --git"
 fi
 
 if [ -x "$(command -v rg)" ]; then
-	export SKIM_CTRL_T_COMMAND='rg --files --no-ignore --glob "!.git/*"'
-	export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
-	export SKIM_DEFAULT_OPTIONS="--bind 'alt-j:down,alt-k:up,enter:accept'"
-	export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
-	export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
+  export SKIM_CTRL_T_COMMAND='rg --files --no-ignore --glob "!.git/*"'
+  export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
+  export SKIM_DEFAULT_OPTIONS="--bind 'alt-j:down,alt-k:up,enter:accept'"
+  export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
+  export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
 fi
 
 # Named Directories
@@ -53,5 +53,5 @@ export PROJECT_HOME=$HOME/Devel
 
 # Exec sway
 if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
+  exec sway
 fi
