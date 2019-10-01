@@ -400,9 +400,9 @@ bindkey '\e[1;3C' forward-half-word
 # load zsh-syntax-highlighting
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# load fzf completion and keybindings
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+# load skim completion and keybindings
+[ -f /usr/share/skim/key-bindings.zsh ] && source /usr/share/skim/key-bindings.zsh
+[ -f /usr/share/skim/completion.zsh ] && source /usr/share/skim/completion.zsh
 
 # load $HOME/.zshrc.local to overwrite this zshrc
 [[ -r ${HOME}/.zshrc.local ]] && source ${HOME}/.zshrc.local
