@@ -46,7 +46,7 @@
 	ph = push
 	phf = push --force-with-lease
 	pht = push --tags
-	pr = "!f() { git fetch origin "+refs/pull/$1/head:refs/remotes/origin/pr/$1" && git checkout "origin/pr/$1" && git checkout FETCH_HEAD; }; f"
+	pr = "!f() { git fetch origin "+refs/pull/$1/head:refs/remotes/origin/pr/$1" && git checkout "origin/pr/$1"; }; f"
 	rb = rebase
 	rbi = rebase -i --autosquash
 	rst = reset
