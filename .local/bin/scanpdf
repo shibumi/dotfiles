@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ ! -x "$(command -v scanimage)" ]; then
+  printf "\e[31m[-] scanimage command doesn't exist\e[0m\n"
+  exit 1
+fi
+
+if [ ! -x "$(command -v convert)" ]; then
+  printf "\e[31m[-] convert command doesn't exist\e[0m\n"
+  exit 1
+fi
+
+if [ $# -eq 0 ]; then
+  echo "scanpdf <filename.pdf>"
+fi
+
+scanimage --format=png --mode Color --resolution=1200 >"/tmp/${1%.pdf}.png"
+convert "/tmp/${1%.pdf}.png" "${1}.pdf"
