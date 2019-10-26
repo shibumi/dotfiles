@@ -21,6 +21,7 @@ if [ -x "$(command -v rg)" ]; then
   export SKIM_CTRL_T_COMMAND='rg --files --no-ignore --glob "!.git/*"'
   export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
   export SKIM_DEFAULT_OPTIONS="--bind 'alt-j:down,alt-k:up,enter:accept'"
+  export SKIM_CTRL_R_OPTS="-e"
   export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
   export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
 fi
