@@ -1,13 +1,17 @@
 # Aliases
 alias muttu="mutt -F ~/.config/mutt/muttrc.tu-clausthal"
-alias muttp="mutt -F ~/.config/mutt/muttrc.posteo"
 alias muttm="mutt -F ~/.config/mutt/muttrc.mailbox"
 alias gdb="gdb -q"
 alias mksrcinfo="makepkg --printsrcinfo > .SRCINFO"
 alias makefmt="shfmt -i 2 -ci -kp -w PKGBUILD"
 alias mosh="mosh --predict=experimental"
 alias mpv="mpv --audio-display=no"
+alias sc="systemctl"
+alias rc="resolvectl"
+alias jc="journalctl"
+alias d="docker"
 alias vim="nvim"
+alias v="nvim"
 alias g="git"
 if [ -x "$(command -v exa)" ]; then
   alias l="exa"
@@ -20,7 +24,7 @@ fi
 if [ -x "$(command -v rg)" ]; then
   export SKIM_CTRL_T_COMMAND='rg --files --no-ignore --glob "!.git/*"'
   export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
-  export SKIM_DEFAULT_OPTIONS="--bind 'alt-j:down,alt-k:up,enter:accept'"
+  export SKIM_DEFAULT_OPTIONS="-e --bind 'alt-j:down,alt-k:up,enter:accept'"
   export SKIM_CTRL_R_OPTS="-e"
   export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
   export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
@@ -39,9 +43,6 @@ export TERM="xterm-256color"
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-# added by travis gem
-[ -f /home/chris/.travis/travis.sh ] && source /home/chris/.travis/travis.sh
 
 # base16 configuration
 BASE16_SHELL=$HOME/.config/base16-shell/
