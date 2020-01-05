@@ -34,6 +34,7 @@
 	dw = diff --color-words
 	dwc = diff --color-words --cached
 	f = fetch
+	ft = fetch --tags
 	fix = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 	fuck = reset --hard
 	l = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --decorate=short
