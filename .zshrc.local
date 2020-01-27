@@ -44,6 +44,8 @@ export TERM="xterm-256color"
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAvA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+export JAVA_FONTS=/usr/share/fonts/TTF
 
 # base16 configuration
 BASE16_SHELL=$HOME/.config/base16-shell/
