@@ -23,7 +23,7 @@ if [ -x "$(command -v exa)" ]; then
 fi
 
 if [ -x "$(command -v rg)" ]; then
-  export SKIM_CTRL_T_COMMAND='rg --files --no-ignore --glob "!.git/*"'
+  export SKIM_CTRL_T_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
   export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
   export SKIM_DEFAULT_OPTIONS="-e --bind 'alt-j:down,alt-k:up,enter:accept'"
   export SKIM_CTRL_R_OPTS="-e"
