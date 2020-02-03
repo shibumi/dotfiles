@@ -29,6 +29,11 @@ if [ -x "$(command -v rg)" ]; then
   export SKIM_CTRL_R_OPTS="-e"
   export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
   export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
+  function search_all() {
+    sk --ansi -i -c 'rg --files --no-ignore --hidden --glob "!.git/*" /' <$TTY
+  }
+  zle -N search_all
+  bindkey "^xa" search_all
 fi
 
 # Named Directories
