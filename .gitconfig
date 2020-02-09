@@ -13,7 +13,7 @@
 	smtpencryption = tls
 	smtpserver = smtp.mailbox.org
 	smtpserverport = 587
-	smtpuser = shibumi@mailbox.org
+	smtpuser = christian.rebischke@mailbox.org
 [alias]
 	a = add
 	am = am -s
