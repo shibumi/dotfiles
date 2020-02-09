@@ -1,7 +1,7 @@
 set editor='nvim'
 set realname="Christian Rebischke"
 set my_name="Christian Rebischke"
-set imap_user="shibumi@mailbox.org"
+set imap_user="christian.rebischke@mailbox.org"
 set imap_pass = `gopass websites/mailbox.org`
 set smtp_pass = $imap_pass
 set header_cache = "~/.config/mutt/cache"
