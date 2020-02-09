@@ -3,7 +3,7 @@
 	autocrlf = input
 [user]
 	name = Christian Rebischke
-	email = chris@nullday.de
+	email = chris@shibumi.dev
 	signingkey = DFE2060D
 [commit]
 	gpgsign = true
