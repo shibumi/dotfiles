@@ -336,7 +336,7 @@ function jump_after_first_word () {
     if (( ${#words} <= 1 )) ; then
         CURSOR=${#BUFFER}
     else
-        CURSOR=${#${words[1]}}
+        CURSOR=${#${words[1]}}+1
     fi
 }
 zle -N jump_after_first_word
