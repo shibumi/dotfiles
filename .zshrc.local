@@ -30,7 +30,7 @@ if [ -x "$(command -v rg)" ]; then
   export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
   export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
   function search_all() {
-    sk --ansi -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' /" <$TTY
+    sk --ansi --print0 -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' /" <$TTY
   }
   zle -N search_all
   bindkey "^xa" search_all
