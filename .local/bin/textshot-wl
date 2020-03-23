@@ -30,6 +30,4 @@ fi
 readonly TIME="$(date +%Y-%m-%d-%H-%M-%S)"
 readonly TEXTPATH="$TEXTSHOTDIR/text-$TIME.txt"
 wl-paste >"$TEXTPATH"
-readonly OUTPUT="$(fb "$TEXTPATH")"
-wl-copy "$OUTPUT"
-notify-send "Text uploaded" "$OUTPUT"
+share "$TEXTPATH"
