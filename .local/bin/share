@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+# share - uploads a file via scp and creates a link for sharing
+#
+# Copyright (c) 2020 by Christian Rebischke <chris@shibumi.dev>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/
+#
+#======================================================================
+# Author: Christian Rebischke
+# Email : chris@shibumi.dev
+# Github: www.github.com/shibumi
+
+host="kurisu"
+domain="shibumi.dev"
+webroot="/srv/www/shibumi.dev/public/share/"
+
+if ! command -v notify-send; then
+  printf "\e[31m[-] notify-send not found\e[0m\n"
+fi
+
+if ! command -v rsync; then
+  printf "\e[31m[-] rsync not found\e[0m\n"
+  notify-send -u critical "rsync not found"
+  exit 1
+fi
+
+if ! command -v wl-copy; then
+  printf "\e[31m[-] wl-copy not found\e[0m\n\e"
+  notify-send -u critical "wl-copy not found"
+  exit 1
+fi
+
+if rsync --progress --chmod=u+r,g+r,o+r -p "$1" "${host}.${domain}:${webroot}/$(basename "$1")"; then
+  printf "\e[32m[+] upload successful\e[0m\n"
+  if wl-copy "https://${domain}/share/$(basename "$1")"; then
+    printf "\e[32m[+] copy to clipboard successful\e[0m\n"
+    notify-send "sharing successful" "$(basename "$1")"
+  else
+    printf "\e[31m[-] copy to clipboard failed\e[0m\n"
+    notify-send -u critical "sharing failed"
+    exit 1
+  fi
+else
+  printf "\e[31m[-] upload failed\e[0m\n"
+  notify-send -u critical "upload failed"
+  exit 1
+fi

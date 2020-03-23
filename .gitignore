@@ -19,6 +19,7 @@
 !.local/bin/publishpkg
 !.local/bin/scanpdf
 !.local/bin/tsh
+!.local/bin/share
 !.local/share/
 !.local/share/udev/
 !.local/share/udev/99-backlight.rules
