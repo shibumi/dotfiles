@@ -2,7 +2,7 @@
 #
 # rofi-gopass - small script to type gopass passwords
 #
-# Copyright (c) 2018 by Christian Rebischke <chris@nullday.de>
+# Copyright (c) 2018 by Christian Rebischke <chris@shibumi.dev>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 #
 #======================================================================
 # Author: Christian Rebischke
-# Email : chris@nullday.de
+# Email : chris@shibumi.dev
 # Github: www.github.com/shibumi
 
 _rofi() {
