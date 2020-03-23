@@ -22,9 +22,9 @@
 # Email : chris@shibumi.dev
 # Github: www.github.com/shibumi
 
-host="kurisu"
-domain="shibumi.dev"
-webroot="/srv/www/shibumi.dev/public/share/"
+readonly host="kurisu"
+readonly domain="shibumi.dev"
+readonly webroot="/srv/www/shibumi.dev/public/share/"
 
 if ! command -v notify-send; then
   printf "\e[31m[-] notify-send not found\e[0m\n"
