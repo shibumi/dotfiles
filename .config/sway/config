@@ -47,11 +47,11 @@ hide_edge_borders smart
 
 # Custom commands
 bindsym $mod+Shift+p exec "rofi-gopass-wl"
+bindsym $mod+Shift+o exec "rofi-oath"
 bindsym $mod+Shift+m exec "pamixer -t"
 bindsym Print exec "screenshot-wl"
 bindsym Shift+Print exec "textshot-wl"
 bindsym Shift+$mod+Print exec "videoshot-wl"
-bindsym $mod+Shift+s exec "/home/chris/.local/share/scripts/musik-sammler"
 bindsym XF86AudioPlay exec "mpc toggle"
 bindsym XF86AudioNext exec "mpc next"
 bindsym XF86AudioPrev exec "mpc prev"
