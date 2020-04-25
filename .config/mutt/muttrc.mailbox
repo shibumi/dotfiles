@@ -8,7 +8,6 @@ set header_cache = "~/.config/mutt/cache"
 set folder = "imaps://imap.mailbox.org:993"
 set spoolfile = +INBOX
 set imap_check_subscribed
-set folder="~/.config/mutt/mail"
 set ssl_starttls=yes
 set smtp_url="smtp://$imap_user@smtp.mailbox.org:587"
 set ssl_force_tls = yes
@@ -22,11 +21,6 @@ set alias_file= ~/.config/mutt/mutt_alias
 set sort_alias= alias
 set reverse_alias=yes
 source $alias_file
-#set sidebar_visible
-#set sidebar_short_path
-#bind index,pager \Cn sidebar-next
-#bind index,pager \Cp sidebar-prev
-#bind index,pager \Co sidebar-open
 set sort = 'threads'
 set sort_aux = 'last-date-received'
 source ~/.config/mutt/colors
