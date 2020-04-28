@@ -8,6 +8,7 @@ set header_cache = "~/.config/mutt/cache"
 set folder = "imaps://imap.mailbox.org:993"
 set spoolfile = +INBOX
 set imap_check_subscribed
+mailboxes = +INBOX
 set ssl_starttls=yes
 set smtp_url="smtp://$imap_user@smtp.mailbox.org:587"
 set ssl_force_tls = yes
