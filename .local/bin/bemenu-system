@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# rofi-systemdialog - systemdialog with rofi (wayland-ready)
+#
+# Copyright (c) 2018 by Christian Rebischke <chris@nullday.de>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http: #www.gnu.org/licenses/
+#
+#======================================================================
+# Author: Christian Rebischke
+# Email : chris@nullday.de
+# Github: www.github.com/shibumi
+
+input=$(printf "lock\nquit sway\nreboot\npoweroff\n" | "$HOME/.local/share/scripts/bemenu" -p "system")
+
+case $input in
+  "lock")
+    swaylock
+    ;;
+
+  "quit sway")
+    case $(printf "yes\nno\n" |  "$HOME/.local/share/scripts/bemenu" -p "confirm") in
+      "yes")
+        swaymsg exit
+        ;;
+      "no") ;;
+
+    esac
+    ;;
+
+  "reboot")
+    case $(printf "yes\nno\n" |  "$HOME/.local/share/scripts/bemenu" -p "confirm") in
+      "yes")
+        systemctl reboot
+        ;;
+      "no") ;;
+
+    esac
+    ;;
+
+  "poweroff")
+    case $(printf "yes\nno\n" |  "$HOME/.local/share/scripts/bemenu" -p "confirm") in
+      "yes")
+        systemctl poweroff
+        ;;
+      "no") ;;
+
+    esac
+    ;;
+esac
+
+# vim: :set et sw=2 ts=2 tw=80:

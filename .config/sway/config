@@ -46,12 +46,13 @@ hide_edge_borders smart
 
 
 # Custom commands
-bindsym $mod+Shift+p exec "rofi-gopass-wl"
-bindsym $mod+Shift+o exec "rofi-oath"
+bindsym $mod+Shift+p exec "bemenu-gopass"
+bindsym $mod+Shift+o exec "bemenu-oath"
 bindsym $mod+Shift+m exec "pamixer -t"
 bindsym Print exec "screenshot-wl"
 bindsym Shift+Print exec "textshot-wl"
 bindsym Shift+$mod+Print exec "videoshot-wl"
+bindsym $mod+Shift+q exec "bemenu-system"
 bindsym XF86AudioPlay exec "mpc toggle"
 bindsym XF86AudioNext exec "mpc next"
 bindsym XF86AudioPrev exec "mpc prev"
@@ -69,7 +70,7 @@ bindsym $mod+Return exec "termite"
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+r exec "rofi -show run"
+bindsym $mod+r exec "/home/chris/.local/share/scripts/bemenu-run"
 
 bindsym $mod+n exec "/home/chris/.local/share/scripts/i3-new-workspace"
 bindsym $mod+Shift+n exec "/home/chris/.local/share/scripts/i3-move-to-new-workspace"
@@ -169,7 +170,6 @@ bindsym $mod+Shift+0 move container to workspace 十
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 
-bindsym $mod+Shift+q exec "/home/chris/.local/share/scripts/rofi-systemdialog-wl"
 bindsym $mod+Shift+r reload
 
 # resize windows

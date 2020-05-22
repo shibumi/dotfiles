@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bemenu-run -i --hb "#151718" --tb "#151718" --nb "#151718" --hf "#9FCA56" --tf "#9FCA56" --fb "#151718" --fn "font pango:inconsolata 8" "$@" -p ">"
