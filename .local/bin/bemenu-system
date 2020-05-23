@@ -21,8 +21,12 @@
 # Author: Christian Rebischke
 # Email : chris@nullday.de
 # Github: www.github.com/shibumi
+#
+# shellcheck disable=SC1090
 
-input=$(printf "lock\nquit sway\nreboot\npoweroff\n" | "$HOME/.local/share/scripts/bemenu" -p "system")
+source "${HOME}/.local/share/scripts/bemenu"
+
+input=$(printf "lock\nquit sway\nreboot\npoweroff\n" | _bemenu -p "system")
 
 case $input in
   "lock")
@@ -30,7 +34,7 @@ case $input in
     ;;
 
   "quit sway")
-    case $(printf "yes\nno\n" |  "$HOME/.local/share/scripts/bemenu" -p "confirm") in
+    case $(printf "yes\nno\n" |  _bemenu -p "confirm") in
       "yes")
         swaymsg exit
         ;;
@@ -40,7 +44,7 @@ case $input in
     ;;
 
   "reboot")
-    case $(printf "yes\nno\n" |  "$HOME/.local/share/scripts/bemenu" -p "confirm") in
+    case $(printf "yes\nno\n" |  _bemenu -p "confirm") in
       "yes")
         systemctl reboot
         ;;
@@ -50,7 +54,7 @@ case $input in
     ;;
 
   "poweroff")
-    case $(printf "yes\nno\n" |  "$HOME/.local/share/scripts/bemenu" -p "confirm") in
+    case $(printf "yes\nno\n" |  _bemenu -p "confirm") in
       "yes")
         systemctl poweroff
         ;;

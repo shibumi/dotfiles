@@ -21,7 +21,11 @@
 # Author: Christian Rebischke
 # Email : chris@shibumi.dev
 # Github: www.github.com/shibumi
+#
+# shellcheck disable=SC1090
 
-input=$(ykman oath list | "$HOME/.local/share/scripts/bemenu" -p "oath")
+source "${HOME}/.local/share/scripts/bemenu"
+
+input=$(ykman oath list | _bemenu -p "oath")
 oath=$(ykman oath code -s "$input")
 echo "$oath" | wl-copy --paste-once

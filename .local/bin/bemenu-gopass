@@ -21,6 +21,10 @@
 # Author: Christian Rebischke
 # Email : chris@shibumi.dev
 # Github: www.github.com/shibumi
+#
+# shellcheck disable=SC1090
+
+source "${HOME}/.local/share/scripts/bemenu"
 
 input=$(gopass list -f | "$HOME/.local/share/scripts/bemenu" -p "gopass")
 printf '%s' "$(gopass show -o "$input")" | wl-copy --paste-once
