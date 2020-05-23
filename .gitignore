@@ -1,5 +1,6 @@
 *
 !.gitignore
+!.npmrc
 !.local
 !.local/bin/
 !.local/bin/mknspawn
