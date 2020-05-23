@@ -32,6 +32,7 @@
 !.local/share/scripts/cpu_usage
 !.local/share/scripts/disk
 !.local/share/scripts/ethernet
+!.local/share/scripts/library
 !.local/share/scripts/external-ip
 !.local/share/scripts/i3-move-to-new-workspace
 !.local/share/scripts/i3-new-workspace

@@ -21,6 +21,10 @@
 # Author: Christian Rebischke
 # Email : chris@shibumi.dev
 # Github: www.github.com/shibumi
+#
+# shellcheck disable=SC1090
+
+source "$HOME/.local/share/scripts/library"
 
 main='kurisu.shibumi.dev'
 hosts=('kurisu.shibumi.dev')
@@ -52,23 +56,23 @@ case $1 in
   create)
     if [ $# -eq 2 ]; then
       mkdir "${2}"
-      printf "\e[32m[+] created %s\e[0m\n" "${2}"
+      _ok "created ${2}"
       cd "${2}" || exit 1
-      printf "\e[32m[+] moved into %s\e[0m\n" "${2}"
+      _ok "moved into ${2}"
       git init
-      printf "\e[32m[+] initialized git repository\e[0m\n"
+      _ok "initialized git repository"
       set_remote "${2}"
-      printf "\e[32m[+] set git remotes\e[0m\n"
+      _ok "set git remotes"
     else
-      printf "\e[31m[-] not enough arguments\e[0m\n"
+      _bad "not enough arguments"
     fi
     ;;
   set)
     if [ $# -eq 2 ]; then
       set_remote "${2}"
-      printf "\e[32m[+] set git remotes\e[0m\n"
+      _ok "set git remotes"
     else
-      printf "\e[31m[-] not enough arguments\e[0m\n"
+      _bad "not enough arguments"
     fi
     ;;
   *)
