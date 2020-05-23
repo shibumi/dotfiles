@@ -5,12 +5,12 @@
 source "$HOME/.local/share/scripts/library"
 
 if [ ! -x "$(command -v scanimage)" ]; then
-  _ok "scanimage command does not exist"
+  _bad "scanimage command does not exist"
   exit 1
 fi
 
 if [ ! -x "$(command -v convert)" ]; then
-  _ok "convert command does not exist"
+  _bad "convert command does not exist"
   exit 1
 fi
 
