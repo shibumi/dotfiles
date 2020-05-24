@@ -28,4 +28,5 @@ source ~/.config/mutt/colors
 set mailcap_path = ~/.config/mutt/mailcap
 set strict_threads=yes
 bind attach <return> view-mailcap
-alternative_order text/plain text/html
+auto_view text/html
+alternative_order text/plain text/enriched text/html

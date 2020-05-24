@@ -1,1 +1,2 @@
+text/html; mv %s %s.html && qutebrowser %s.html >/dev/null 2>/dev/null; needsterminal;
 text/html; w3m -O utf-8 -o display_link_number=1 -dump %s; nametemplate=%s.html; copiousoutput;
