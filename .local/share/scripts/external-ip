@@ -1,5 +1,0 @@
-#!/bin/bash
-
-source $(dirname "$0")/colors
-EXTERNAL_IP="$(curl -s ipinfo.io/ip)"
-echo -e "IP $EXTERNAL_IP"
