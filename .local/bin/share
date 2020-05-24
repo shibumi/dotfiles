@@ -28,7 +28,7 @@ source "$HOME/.local/share/scripts/library"
 
 readonly host="kurisu"
 readonly domain="shibumi.dev"
-readonly webroot="/srv/www/shibumi.dev/public/share/"
+readonly webroot="/srv/www/kurisu.shibumi.dev/public/share/"
 
 if ! command -v notify-send; then
   _bad "notify-send not found"
