@@ -27,3 +27,5 @@ set sort_aux = 'last-date-received'
 source ~/.config/mutt/colors
 set mailcap_path = ~/.config/mutt/mailcap
 set strict_threads=yes
+bind attach <return> view-mailcap
+alternative_order text/plain text/html

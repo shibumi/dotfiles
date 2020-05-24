@@ -1,1 +1,1 @@
-text/html;  lynx -dump -assume_charset=%{charset} -display_charset=utf-8 %s; copiousoutput; nametemplate=%s.html
+text/html; w3m -O utf-8 -o display_link_number=1 -dump %s; nametemplate=%s.html; copiousoutput;
