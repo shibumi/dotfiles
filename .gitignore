@@ -15,6 +15,7 @@
 !.local/bin/bemenu-gopass
 !.local/bin/bemenu-oath
 !.local/bin/bemenu-system
+!.local/bin/swayfocused
 !.local/bin/tsh
 !.local/bin/share
 !.local/share/

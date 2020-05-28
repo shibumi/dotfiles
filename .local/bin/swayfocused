@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import asyncio
+from i3ipc.aio import Connection
+import re
+
+
+async def main():
+    i3 = await Connection().connect()
+    outputs = await i3.get_outputs()
+    for output in outputs:
+        if output.focused:
+            return output.name
+
+focus = asyncio.run(main())
+match = re.search('.*-(\d)', focus)
+print(match.group(1))
