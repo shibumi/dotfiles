@@ -393,6 +393,7 @@ bindkey "^x1" jump_after_first_word
 bindkey "^x'" toggleSingleString
 bindkey '^x"' toggleDoubleString
 bindkey '^x;' clearString
+bindkey '^xc' copy-prev-shell-word
 bindkey '^[^?' backward-kill-dir
 bindkey '\e[1;3D' backward-half-word
 bindkey '\e[1;3C' forward-half-word
