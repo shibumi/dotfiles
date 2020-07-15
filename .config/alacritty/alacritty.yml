@@ -2,7 +2,7 @@
 
 font:
   normal:
-      family: Inconsolata
+    family: Inconsolata
   size: 9.0
 
 colors:
@@ -13,25 +13,25 @@ colors:
     cursor: '0xeeeeee'
   normal:
     black: '0x151718'
-    red:  '0xCd3f45'
-    green:   '0x9fca56'
-    yellow:  '0xe6cd69'
-    blue:    '0x55b5db'
+    red: '0xCd3f45'
+    green: '0x9fca56'
+    yellow: '0xe6cd69'
+    blue: '0x55b5db'
     magenta: '0xa074c4'
-    cyan:    '0x55dbbe'
-    white:   '0xd6d6d6'
+    cyan: '0x55dbbe'
+    white: '0xd6d6d6'
   bright:
-    black:   '0x41535B'
-    red:     '0xCd3f45'
-    green:   '0x9fca56'
-    yellow:  '0xe6cd69'
-    blue:    '0x55b5db'
+    black: '0x41535B'
+    red: '0xCd3f45'
+    green: '0x9fca56'
+    yellow: '0xe6cd69'
+    blue: '0x55b5db'
     magenta: '0xa074c4'
-    cyan:    '0x55dbbe'
-    white:   '0xffffff'
+    cyan: '0x55dbbe'
+    white: '0xffffff'
   indexed_colors: []
 mouse:
-    url:
-      launcher:
-        program: chromium
-        args: []
+  url:
+    launcher:
+      program: chromium
+      args: []
