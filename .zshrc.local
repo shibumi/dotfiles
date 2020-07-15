@@ -51,6 +51,7 @@ export GOBIN=$HOME/go/bin
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAvA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 export JAVA_FONTS=/usr/share/fonts/TTF
+export KUBECONFIG="$(find ~/.kube/configs/ -type f -exec printf '%s:' '{}' +)"
 
 # base16 configuration
 BASE16_SHELL=$HOME/.config/base16-shell/
