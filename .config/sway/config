@@ -64,7 +64,7 @@ bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
 bindsym XF86ScreenSaver exec "swaylock"
 
 # start a terminal
-bindsym $mod+Return exec "termite"
+bindsym $mod+Return exec "alacritty"
 
 # kill focused window
 bindsym $mod+Shift+c kill
