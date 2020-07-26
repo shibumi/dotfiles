@@ -18,5 +18,5 @@ if [ $# -eq 0 ]; then
   echo "scanpdf <filename.pdf>"
 fi
 
-scanimage --format=png --mode Color --resolution=600 >"/tmp/${1%.pdf}.png"
-convert "/tmp/${1%.pdf}.png" "${1}.pdf"
+scanimage -d "hpaio:/usb/Deskjet_2540_series?serial=CN44B3F5CD0604" --format=png --mode Color --resolution=300 >"/tmp/${1%.pdf}.png"
+convert "/tmp/${1%.pdf}.png" "${1%.pdf}.pdf"
