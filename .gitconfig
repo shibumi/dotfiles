@@ -97,3 +97,5 @@
 	fsckobjects = true
 [credential]
 	helper = "!gopass git-credential $@"
+[pull]
+	ff = only
