@@ -72,8 +72,8 @@ bindsym $mod+Shift+c kill
 # start dmenu (a program launcher)
 bindsym $mod+r exec "/home/chris/.local/share/scripts/bemenu-run"
 
-bindsym $mod+n exec "/home/chris/.local/share/scripts/i3-new-workspace"
-bindsym $mod+Shift+n exec "/home/chris/.local/share/scripts/i3-move-to-new-workspace"
+bindsym $mod+n exec "/home/chris/.local/share/scripts/sway-new-workspace"
+bindsym $mod+Shift+n exec "/home/chris/.local/share/scripts/sway-move-to-new-workspace"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
