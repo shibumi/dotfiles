@@ -3,9 +3,9 @@ Description=SSH key agent
 Documentation=man:ssh-agent(1)
 
 [Service]
-Type=forking
+Type=simple
 Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
-ExecStart=/usr/bin/ssh-agent -a $SSH_AUTH_SOCK
+ExecStart=/usr/bin/ssh-agent -D -a ${SSH_AUTH_SOCK}
 
 [Install]
 WantedBy=default.target
