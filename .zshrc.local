@@ -13,6 +13,7 @@ alias d="docker"
 alias k="kubectl"
 alias vim="nvim"
 alias v="nvim"
+alias gocover="go test -coverprofile=coverage.out ./... && go tool cover -html=coverage.out"
 alias g="git"
 if [ -x "$(command -v exa)" ]; then
   alias l="exa"
