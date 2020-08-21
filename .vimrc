@@ -121,7 +121,7 @@ let g:python_recommended_style = 1
 " = Look =
 " ========
 if dein#tap('base16-vim')
-    colorscheme base16-seti-ui
+    colorscheme base16-seti
 endif
 highlight ExtraWhitespace ctermbg=red guibg=red
 highlight SignColumn ctermbg=black

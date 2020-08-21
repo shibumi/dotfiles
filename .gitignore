@@ -58,6 +58,9 @@
 !.config/mpd/mpd.conf
 !.config/user-tmpfiles.d/
 !.config/user-tmpfiles.d/mpd.conf
+!.config/nvim/
+!.config/nvim/colors
+!.config/nvim/colors/base16-seti.vim
 !.gitconfig
 !.vimrc
 !.zprofile
