@@ -61,6 +61,8 @@
 !.config/nvim/
 !.config/nvim/colors
 !.config/nvim/colors/base16-seti.vim
+!.config/kanshi/
+!.config/kanshi/config
 !.gitconfig
 !.vimrc
 !.zprofile

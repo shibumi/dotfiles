@@ -27,6 +27,7 @@ input * xkb_variant "us"
 # Setting sway specific executions
 exec mako
 exec swaybg -c "#151718"
+exec kanshi
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1

@@ -1,0 +1,9 @@
+profile {
+	output eDP-1 disable
+	output DP-4 pos 0 0 res 1920x1080
+	output DP-5 pos 1920 0 res 1920x1080
+}
+
+profile {
+	output eDP-1 enable
+}
