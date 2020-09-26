@@ -38,8 +38,8 @@ if [ -x "$(command -v rg)" ]; then
 fi
 
 # Named Directories
-hash -d aur=/home/chris/export/archlinux/aur/
-hash -d community=/home/chris/export/archlinux/svn-community
+hash -d aur=/home/chris/archlinux/archlinux/aur/
+hash -d community=/home/chris/archlinux/svn-community
 
 # Exports
 export EDITOR=nvim
@@ -53,15 +53,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAvA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 export JAVA_FONTS=/usr/share/fonts/TTF
 export KUBECONFIG="$(find ~/.kube/configs/ -type f -exec printf '%s:' '{}' +)"
+export XDG_CURRENT_DESKTOP=sway
 
 # base16 configuration
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-[ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
 
 # Exec sway
 if [ "$(tty)" = "/dev/tty1" ]; then
