@@ -41,6 +41,21 @@ fi
 hash -d aur=/home/chris/archlinux/archlinux/aur/
 hash -d community=/home/chris/archlinux/svn-community
 
+# Exports
+export EDITOR=nvim
+export PAGER=less
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export IBUS_SOCK="$XDG_RUNTIME_DIR/ibus.socket"
+export TERM="xterm-256color"
+export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
+export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAvA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+export JAVA_FONTS=/usr/share/fonts/TTF
+export KUBECONFIG="$(find ~/.kube/configs/ -type f -exec printf '%s:' '{}' +)"
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+
 # Exec sway
 if [ "$(tty)" = "/dev/tty1" ]; then
   exec sway
