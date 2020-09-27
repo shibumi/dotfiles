@@ -63,6 +63,8 @@
 !.config/nvim/colors/base16-seti.vim
 !.config/kanshi/
 !.config/kanshi/config
+!.config/environment.d
+!.config/environment.d/envvars.conf
 !.gitconfig
 !.vimrc
 !.zprofile
