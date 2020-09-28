@@ -46,5 +46,5 @@ eval $(cat $HOME/.config/environment.d/envvars.conf)
 
 # Exec sway
 if [ "$(tty)" = "/dev/tty1" ]; then
-  exec sway
+  exec systemd-cat --identifier=sway sway
 fi
