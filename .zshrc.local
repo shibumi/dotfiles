@@ -42,7 +42,7 @@ hash -d aur=/home/chris/archlinux/archlinux/aur/
 hash -d community=/home/chris/archlinux/svn-community
 
 # Source environment variables
-eval $(sed 's/^[^$]/export /' $HOME/.config/environment.d/envvars.conf)
+eval $(sed 's/^/export /' $HOME/.config/environment.d/envvars.conf)
 
 # Exec sway
 if [ "$(tty)" = "/dev/tty1" ]; then
