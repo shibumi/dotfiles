@@ -362,6 +362,9 @@ prompt_dir_writeable() {
 }
 
 prompt_git_dirty() {
+    if ! command -v git &> /dev/null; then
+	    exit
+    fi
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [ -z "$(command git status --porcelain --ignore-submodules -unormal)" ]; then
             echo "green"
@@ -371,13 +374,26 @@ prompt_git_dirty() {
     else
         echo "blue"
     fi
+}
 
+prompt_get_namespace() {
+	if ! command -v kubens &> /dev/null; then
+		exit
+	fi
+	echo "$(kubens -c)"
+}
+
+prompt_get_context() {
+	if ! command -v kubectx &> /dev/null; then
+		exit
+	fi
+	echo "$(kubectx -c)"
 }
 
 NEWLINE=$'\n'
 precmd() {
     vcs_info
-    FIRST_PROMPT="%(!.%F{red}root%f.%F{green}$USER%f) %B%F{$prompt_color}%m%f%b %F{$(prompt_dir_writeable)}%~%f %* %F{$(prompt_git_dirty)}${vcs_info_msg_0_}%f %(1j.%j.)"
+    FIRST_PROMPT="%(!.%F{red}root%f.%F{green}$USER%f) %F{$prompt_color}%m%f %F{$(prompt_dir_writeable)}%~%f %* %F{$(prompt_git_dirty)}${vcs_info_msg_0_}%f %F{blue}$(prompt_get_context)%f %F{cyan}$(prompt_get_namespace)%f %(1j.%j.)"
 }
 PROMPT='$FIRST_PROMPT${NEWLINE}%(?.%F{green}.%F{red})❯%f '
 
