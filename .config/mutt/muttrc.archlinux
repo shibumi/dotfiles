@@ -9,8 +9,8 @@ set folder = "imaps://mail.archlinux.org:993"
 set spoolfile = +INBOX
 set imap_check_subscribed
 mailboxes = +INBOX
-set ssl_starttls=yes
-set smtp_url="smtp://$imap_user@mail.archlinux.org:465"
+set ssl_starttls=no
+set smtp_url="smtps://$imap_user@mail.archlinux.org:465"
 set ssl_force_tls = yes
 source  ~/.config/mutt/crypto
 set from="Chris.Rebischke@archlinux.org"
