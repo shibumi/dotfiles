@@ -13,7 +13,7 @@ set ssl_starttls=yes
 set smtp_url="smtp://$imap_user@smtp.mailbox.org:587"
 set ssl_force_tls = yes
 source  ~/.config/mutt/crypto
-set from="Chris.Rebischke@archlinux.org"
+set from="chris@shibumi.dev"
 set use_from = yes
 set record="imaps://imap.mailbox.org:993/Sent"
 auto_view text/html
