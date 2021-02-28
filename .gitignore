@@ -39,6 +39,7 @@
 !.config/mutt/mailcap
 !.config/mutt/mutt_alias
 !.config/mutt/muttrc.mailbox
+!.config/mutt/muttrc.archlinux
 !.config/mutt/muttrc.milliways
 !.config/mutt/muttrc.posteo
 !.config/mutt/muttrc.tu-clausthal
