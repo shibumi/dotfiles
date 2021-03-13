@@ -327,6 +327,13 @@ zle -N sudo-command-line
 function insert-datestamp () { LBUFFER+=${(%):-'%D{%Y-%m-%d}'}; }
 zle -N insert-datestamp
 
+# get last modified file
+function get-last-modified-file () {
+	LAST_FILE=$(\ls -t1p | grep -v / | head -1)
+	LBUFFER+=${(%):-$LAST_FILE}
+}
+zle -N get-last-modified-file
+
 # jump behind the first word on the cmdline
 # useful to add options.
 function jump_after_first_word () {
@@ -415,6 +422,7 @@ bindkey "^x'" toggleSingleString
 bindkey '^x"' toggleDoubleString
 bindkey '^x;' clearString
 bindkey '^xc' copy-prev-shell-word
+bindkey '^xl' get-last-modified-file
 bindkey '^[^?' backward-kill-dir
 bindkey '\e[1;3D' backward-half-word
 bindkey '\e[1;3C' forward-half-word
