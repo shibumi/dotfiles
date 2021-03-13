@@ -27,4 +27,6 @@
 source "${HOME}/.local/share/scripts/bemenu"
 
 input=$(gopass list -f | _bemenu -p "gopass")
-printf '%s' "$(gopass show -o "$input")" | wl-copy --paste-once
+printf '%s' "$(gopass show -o "$input")" | wl-copy
+sleep 5
+wl-copy --clear

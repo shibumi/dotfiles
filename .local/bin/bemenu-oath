@@ -28,4 +28,4 @@ source "${HOME}/.local/share/scripts/bemenu"
 
 input=$(ykman oath list | _bemenu -p "oath")
 oath=$(ykman oath code -s "$input")
-echo "$oath" | wl-copy --paste-once
+echo "$oath" | wl-copy
