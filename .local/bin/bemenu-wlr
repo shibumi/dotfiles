@@ -24,8 +24,6 @@
 #
 # shellcheck disable=SC1090
 
-source "${HOME}/.local/share/scripts/bemenu"
-
-input=$(swaymsg -t get_outputs | jq -r '.[].name' | _bemenu)
+input=$(slurp -o -f "%o")
 /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr -r -o "$input" &
 
