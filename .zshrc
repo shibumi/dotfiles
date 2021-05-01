@@ -1,24 +1,6 @@
 # hikari-zsh -  A pure and minimalistic zsh with special shortcuts
 #
-# Copyright (c) 2019 by Christian Rebischke <chris@nullday.de>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http: #www.gnu.org/licenses/
-#
-#======================================================================
-# Author: Christian Rebischke
-# Email : chris@nullday.de
-# Github: www.github.com/Shibumi
+# Copyright (c) 2021 by Christian Rebischke <chris@shibumi.dev>
 
 # load $HOME/.zshrc.pre to overwrite defaults
 [[ -r ${HOME}/.zshrc.pre ]] && source ${HOME}/.zshrc.pre
@@ -112,8 +94,6 @@ zstyle ':vcs_info:svn*:*' get-revision true
 zstyle ':vcs_info:svn*:*' check-for-changes false
 zstyle ':vcs_info:svn*' formats "%b %m "
 zstyle ':vcs_info:svn*' actionformats "%b/%a %m "
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 # completion dump file
 COMPDUMPFILE=${COMPDUMPFILE:-${ZDOTDIR:-${HOME}}/.zcompdump}
@@ -164,14 +144,14 @@ zle -N backward-kill-dir
 
 # backward half word
 backward-half-word () {
-    local WORDCHARS='*?-[]~=&;!#$%^(){}<>'
+    local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_.'
     zle backward-word
 }
 zle -N backward-half-word
 
 # forward half word
 forward-half-word () {
-    local WORDCHARS='*?-[]~=&;!#$%^(){}<>'
+    local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_.'
     zle forward-word
 }
 zle -N forward-half-word
