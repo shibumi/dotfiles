@@ -18,22 +18,20 @@ alias gdiff="git diff --no-index"
 alias nocomment="grep '^[[:blank:]]*[^[:blank:]#;]'"
 
 if [ -x "$(command -v kubectl)" ]; then
-	# Kubernetes alias
-	alias k="kubectl"
-	alias kl="kubectl logs"
-	alias ka="kubectl apply"
-	alias kc="kubectl create"
-	alias kd="kubectl describe"
-	alias kg="kubectl get"
-	alias ke="kubectl edit"
-	# we explicitly do not set kubectl delete here
-	alias wkg="watch kubectl get"
-	function kesh() {
-		kubectl exec -it "$1" -- "(bash || ash || sh)"
-	}
+  # Kubernetes alias
+  alias k="kubectl"
+  alias kl="kubectl logs"
+  alias ka="kubectl apply"
+  alias kc="kubectl create"
+  alias kd="kubectl describe"
+  alias kg="kubectl get"
+  alias ke="kubectl edit"
+  # we explicitly do not set kubectl delete here
+  alias wkg="watch kubectl get"
+  function kesh() {
+    kubectl exec -it "$1" -- "(bash || ash || sh)"
+  }
 fi
-
-
 
 if [ -x "$(command -v exa)" ]; then
   alias l="exa"
@@ -51,12 +49,12 @@ if [ -x "$(command -v rg)" ]; then
   export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
   export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
   function search_all() {
-    LBUFFER+=$(sk --ansi -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' /" < $TTY)
+    LBUFFER+=$(sk --ansi -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' /" <$TTY)
   }
   zle -N search_all
   bindkey "^xa" search_all
   function search_home() {
-	LBUFFER+=$(sk --ansi -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' $HOME" < $TTY)
+    LBUFFER+=$(sk --ansi -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' $HOME" <$TTY)
   }
   zle -N search_home
   bindkey "^xh" search_home
