@@ -29,7 +29,7 @@ if [ -x "$(command -v kubectl)" ]; then
   # we explicitly do not set kubectl delete here
   alias wkg="watch kubectl get"
   function kesh() {
-    kubectl exec -it "$1" -- "(bash || ash || sh)"
+    kubectl exec -it "$1" -- bash || ash || sh
   }
 fi
 
