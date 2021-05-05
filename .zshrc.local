@@ -26,6 +26,7 @@ if [ -x "$(command -v kubectl)" ]; then
   alias kd="kubectl describe"
   alias kg="kubectl get"
   alias ke="kubectl edit"
+  alias kpf="kubectl port-forward"
   # we explicitly do not set kubectl delete here
   alias wkg="watch kubectl get"
   function kesh() {
