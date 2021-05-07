@@ -137,7 +137,7 @@ zle -N clearString
 
 #overwrite alt+backspace
 backward-kill-dir () {
-    local WORDCHARS='*?-[]~=&;!#$%^(){}<>'
+    local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_.'
     zle backward-kill-word
 }
 zle -N backward-kill-dir
