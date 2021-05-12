@@ -9,6 +9,8 @@
 	gpgsign = true
 [tag]
 	forceSignAnnotated = true
+[init]
+	defaultBranch = main
 [sendemail]
 	smtpencryption = tls
 	smtpserver = smtp.mailbox.org
