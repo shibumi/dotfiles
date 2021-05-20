@@ -24,7 +24,7 @@ if [ -x "$(command -v kubectl)" ]; then
   alias ka="kubectl apply"
   alias kc="kubectl create"
   alias kd="kubectl describe"
-  alias kg="kubectl get"
+  alias kg="kubectl get --show-kind=true"
   alias ke="kubectl edit"
   alias kesh="kubectl exec -it"
   alias kpf="kubectl port-forward"
