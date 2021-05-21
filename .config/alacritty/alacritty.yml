@@ -30,6 +30,16 @@ colors:
     cyan: '0x55dbbe'
     white: '0xffffff'
   indexed_colors: []
+  search:
+    matches:
+      foreground: '0x000000'
+      background: '0xffffff'
+    focused_matches:
+      foreground: '0x000000'
+      background: '0xffffff'
+    bar:
+      foreground: '0x000000'
+      background: '0xffffff'
   hints:
     start:
       foreground: '0x000000'
