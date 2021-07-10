@@ -17,7 +17,6 @@
 !.local/bin/bemenu-system
 !.local/bin/bemenu-wlr
 !.local/bin/pinentry-bemenu
-!.local/bin/swayfocused
 !.local/bin/tsh
 !.local/bin/share
 !.local/share/
