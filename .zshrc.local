@@ -68,5 +68,5 @@ eval $(sed 's/^/export /' $HOME/.config/environment.d/envvars.conf)
 
 # Exec sway
 if [ "$(tty)" = "/dev/tty1" ]; then
-  exec systemd-cat --identifier=sway sway
+  WLR_DRM_NO_MODIFIERS=1 exec systemd-cat --identifier=sway sway
 fi
