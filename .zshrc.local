@@ -11,7 +11,6 @@ alias sc="systemctl"
 alias rc="resolvectl"
 alias jc="journalctl"
 alias d="docker"
-alias vim="nvim"
 alias gocover="go test -coverprofile=coverage.out ./... && go tool cover -html=coverage.out"
 alias g="git"
 alias gdiff="git diff --no-index"
@@ -41,22 +40,10 @@ if [ -x "$(command -v exa)" ]; then
 fi
 
 if [ -x "$(command -v rg)" ]; then
-  export SKIM_CTRL_T_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
-  export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*"'
-  export SKIM_DEFAULT_OPTIONS="-e --bind 'alt-j:down,alt-k:up,enter:accept'"
-  export SKIM_CTRL_R_OPTS="-e"
-  export SKIM_POST_HOOK='REPORTTIME=$_REPORTTIME; unset _REPORTTIME'
-  export SKIM_PRE_HOOK='_REPORTTIME=$REPORTTIME; unset REPORTTIME'
-  function search_all() {
-    LBUFFER+=$(sk --ansi -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' /" <$TTY)
-  }
-  zle -N search_all
-  bindkey "^xa" search_all
-  function search_home() {
-    LBUFFER+=$(sk --ansi -e -m -c "rg --files --no-ignore --hidden --glob '!.git/*' $HOME" <$TTY)
-  }
-  zle -N search_home
-  bindkey "^xh" search_home
+  export FZF_CTRL_T_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*" 2> /dev/null'
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --glob "!.git/*" 2> /dev/null'
+  export FZF_DEFAULT_OPTIONS="-e --bind 'alt-j:down,alt-k:up,enter:accept'"
+  export FZF_CTRL_R_OPTS="-e"
 fi
 
 # Named Directories

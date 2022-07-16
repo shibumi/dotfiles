@@ -1,6 +1,7 @@
 [core]
-	editor = nvim
+	editor = vim
 	autocrlf = input
+	excludesFile = ~/.global-gitignore
 [user]
 	name = Christian Rebischke
 	email = chris@shibumi.dev
@@ -97,8 +98,6 @@
 	fsckobjects = true
 [receive]
 	fsckobjects = true
-[credential]
-	helper = "!gopass git-credential $@"
 [pull]
 	ff = only
 [filter "lfs"]

@@ -68,6 +68,7 @@
 !.config/environment.d
 !.config/environment.d/envvars.conf
 !.gitconfig
+!.global-gitignore
 !.vimrc
 !.zprofile
 !.zshrc
