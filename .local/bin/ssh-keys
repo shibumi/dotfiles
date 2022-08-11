@@ -23,10 +23,10 @@
 # Github: www.github.com/shibumi
 
 declare -A KEYS
-KEYS[id_rsa]="ssh/id_rsa"
+KEYS[5cotgxr346ielspoh4q655heua]="ssh/id_rsa"
 #KEYS[tuclausthal]="tu-clausthal/ssh/tu-clausthal"
 
 for i in "${!KEYS[@]}"; do
   SSH_ASKPASS="$HOME/.local/share/scripts/ssh_give_pass" ssh-add \
-    "$HOME/.ssh/${i}" <<<$(op item get "chris@motoko" --fields label=password)
+    "$HOME/.ssh/${i}" <<<$(op item get "${KEYS[$i]}" --fields label=password)
 done

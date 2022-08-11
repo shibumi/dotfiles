@@ -2,7 +2,7 @@ set editor='nvim'
 set realname="Christian Rebischke"
 set my_name="Christian Rebischke"
 set imap_user="christian.rebischke@mailbox.org"
-set imap_pass = `gopass show -o websites/mailbox.org`
+set imap_pass = `op item get 5uspgww5kzoykhggul2fwcq7ve --field label=password`
 set smtp_pass = $imap_pass
 set header_cache = "~/.config/mutt/cache"
 set folder = "imaps://imap.mailbox.org:993"

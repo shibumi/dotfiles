@@ -2,7 +2,7 @@ set editor='vim'
 set realname="Christian Rebischke"
 set my_name="Christian Rebischke"
 set imap_user="shibumi"
-set imap_pass = `gopass show -o websites/archlinux.org`
+set imap_pass = `op item get qqf42xk3w7it3jaj65i22z57vu --field label=password`
 set smtp_pass = $imap_pass
 set header_cache = "~/.config/mutt/cache"
 set folder = "imaps://mail.archlinux.org:993"
