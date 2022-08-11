@@ -227,6 +227,7 @@ prompt_git_dirty() {
 }
 
 prompt_get_namespace() {
+	return
 	if ! command -v kubens &> /dev/null; then
 		exit
 	fi
@@ -234,6 +235,7 @@ prompt_get_namespace() {
 }
 
 prompt_get_context() {
+	return
 	if ! command -v kubectx &> /dev/null; then
 		exit
 	fi
