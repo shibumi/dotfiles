@@ -28,5 +28,5 @@ KEYS[id_rsa]="ssh/id_rsa"
 
 for i in "${!KEYS[@]}"; do
   SSH_ASKPASS="$HOME/.local/share/scripts/ssh_give_pass" ssh-add \
-    "$HOME/.ssh/${i}" <<<$(gopass "${KEYS[$i]}")
+    "$HOME/.ssh/${i}" <<<$(op item get "chris@motoko" --fields label=password)
 done
