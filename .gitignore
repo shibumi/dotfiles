@@ -31,6 +31,8 @@
 !.local/share/scripts/bemenu-run
 !.config
 !.config/i3/
+!.config/whipper/
+!.config/whipper/whipper.conf
 !.config/mutt/
 !.config/termite/
 !.config/dunstrc
