@@ -1,7 +1,4 @@
 # Aliases
-alias muttu="mutt -F ~/.config/mutt/muttrc.tu-clausthal"
-alias muttm="mutt -F ~/.config/mutt/muttrc.mailbox"
-alias mutta="mutt -F ~/.config/mutt/muttrc.archlinux"
 alias gdb="gdb -q"
 alias mksrcinfo="makepkg --printsrcinfo > .SRCINFO"
 alias makefmt="shfmt -i 2 -ci -kp -w PKGBUILD"
