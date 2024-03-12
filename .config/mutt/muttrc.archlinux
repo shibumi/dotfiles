@@ -18,10 +18,6 @@ set use_from = yes
 set record="imaps://mail.archlinux.org:993/Sent"
 auto_view text/html
 set query_command = "abook --mutt-query '%s'"
-set alias_file= ~/.config/mutt/mutt_alias
-set sort_alias= alias
-set reverse_alias=yes
-source $alias_file
 set sort = 'threads'
 set sort_aux = 'last-date-received'
 source ~/.config/mutt/colors

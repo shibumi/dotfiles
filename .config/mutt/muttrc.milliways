@@ -13,10 +13,6 @@ source  ~/.config/mutt/crypto
 set from="shibumi@milliways.info"
 set use_from = yes
 set query_command = "abook --mutt-query '%s'"
-set alias_file= ~/.config/mutt/mutt_alias
-set sort_alias= alias
-set reverse_alias=yes
-source $alias_file
 set sort = 'reverse-threads'
 set sort_aux = 'reverse-last-date-received'
 set print_command="muttprint"
