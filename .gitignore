@@ -40,7 +40,6 @@
 !.config/mutt/colors
 !.config/mutt/crypto
 !.config/mutt/mailcap
-!.config/mutt/mutt_alias
 !.config/mutt/muttrc.mailbox
 !.config/mutt/muttrc.archlinux
 !.config/mutt/muttrc.milliways
