@@ -79,10 +79,6 @@
 	status = always
 	branch = always
 	interactive = always
-[pager]
-	diff = /usr/share/git/diff-highlight/diff-highlight | less
-	log = /usr/share/git/diff-highlight/diff-highlight | less
-	show = /usr/share/git/diff-highlight/diff-highlight | less
 [push]
 	default = current
 [rerere]
