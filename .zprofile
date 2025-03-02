@@ -4,5 +4,5 @@ PATH="${PATH}:${HOME}/.krew/bin"
 
 
 # Added by Toolbox App
-export PATH="$PATH:/home/chrisrebischke/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/home/chris/.local/share/JetBrains/Toolbox/scripts"
 
