@@ -1,5 +1,6 @@
 *
 !.gitignore
+!.makepkg.conf
 !.npmrc
 !.gtkrc-2.0
 !.local
