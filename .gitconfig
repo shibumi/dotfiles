@@ -5,11 +5,6 @@
 [user]
 	name = Christian Rebischke
 	email = chris@shibumi.dev
-	signingkey = DFE2060D
-[commit]
-	gpgsign = true
-[tag]
-	forceSignAnnotated = true
 [init]
 	defaultBranch = main
 [sendemail]
