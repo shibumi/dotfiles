@@ -85,6 +85,8 @@ REPORTTIME=10
 # zstyles
 zstyle ':completion:*' menu select
 zstyle ':vcs_info:*' enable git svn
+zstyle ':completion::complete:*' use-cache 1 # enables completion caching
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
 zstyle ':vcs_info:git*:*' get-revision true
 zstyle ':vcs_info:git*:*' check-for-changes false
 zstyle ':vcs_info:git*' formats "%8.8i %b "
@@ -222,7 +224,7 @@ prompt_git_dirty() {
             echo "yellow"
         fi
     else
-        echo "blue"
+        echo "red"
     fi
 }
 
@@ -247,10 +249,17 @@ prompt_get_context() {
 	fi
 }
 
+prompt_get_gcloud_context() {
+    if ! command -v gcloud &> /dev/null; then
+        exit
+    fi
+    echo "$(gcloud config get-value project)"
+ }
+
 NEWLINE=$'\n'
 precmd() {
     vcs_info
-    FIRST_PROMPT="%(!.%F{red}root%f.%F{green}$USER%f) %F{$prompt_color}%m%f %F{$(prompt_dir_writeable)}%~%f %* %F{$(prompt_git_dirty)}${vcs_info_msg_0_}%f $(prompt_get_context) %F{cyan}$(prompt_get_namespace)%f %(1j.%j.)"
+    FIRST_PROMPT="%(!.%F{red}root%f.%F{green}$USER%f) %F{$prompt_color}%m%f %F{$(prompt_dir_writeable)}%~%f %* %F{$(prompt_git_dirty)}${vcs_info_msg_0_}%f $(prompt_get_gcloud_context) %F{blue}$(prompt_get_context) %F{cyan}$(prompt_get_namespace)%f %(1j.%j.)"
 }
 PROMPT='$FIRST_PROMPT${NEWLINE}%(?.%F{green}.%F{red})❯%f '
 
