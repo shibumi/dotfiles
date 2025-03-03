@@ -21,8 +21,7 @@ set showmatch
 set showcmd
 set incsearch
 set ttyfast
-" We are using a powerline.. so we don't need this
-set showmode!
+set showmode
 set encoding=utf-8
 set undofile                " Save undo's after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories
