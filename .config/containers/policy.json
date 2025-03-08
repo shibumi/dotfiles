@@ -1,0 +1,21 @@
+{
+    "default": [
+        {
+            "type": "reject"
+        }
+    ],
+    "transports": {
+        "docker": {
+            "registry.hub.docker.com/google": [
+                {
+                    "type": "insecureAcceptAnything"
+                }
+            ],
+            "registry.hub.docker.com/library": [
+                {
+                    "type": "insecureAcceptAnything"
+                }
+            ]
+        }
+    }
+}
