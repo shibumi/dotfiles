@@ -60,10 +60,10 @@ setopt noglobdots
 # use zsh style word splitting
 setopt noshwordsplit
 # invert pushd
-setopt  pushdminus 
+setopt pushdminus
 # silent pushd
-setopt pushdsilent 
-# push home when using pushd 
+setopt pushdsilent
+# push home when using pushd
 setopt pushdtohome
 # Remove duplicate entries
 setopt pushdignoredups
@@ -112,140 +112,140 @@ compinit -d ${COMPDUMPFILE} || print 'Notice: no compinit available :('
 
 # Smart Functions
 # smart cd function, allows switching to /etc when running 'cd /etc/fstab'
-function cd () {
-    if (( ${#argv} == 1 )) && [[ -f ${1} ]]; then
-        [[ ! -e ${1:h} ]] && return 1
-        print "Correcting ${1} to ${1:h}"
-        builtin cd ${1:h}
-    else
-        builtin cd "$@"
-    fi
+function cd() {
+	if ((${#argv} == 1)) && [[ -f ${1} ]]; then
+		[[ ! -e ${1:h} ]] && return 1
+		print "Correcting ${1} to ${1:h}"
+		builtin cd ${1:h}
+	else
+		builtin cd "$@"
+	fi
 }
 
 # Behaviour
 # custom keybindings for string operations
 toggleSingleString() {
-  LBUFFER=`echo $LBUFFER | sed "s/\(.*\) /\1 '/"`
-  RBUFFER=`echo $RBUFFER | sed "s/\($\| \)/' /"`
-  zle redisplay
+	LBUFFER=$(echo $LBUFFER | sed "s/\(.*\) /\1 '/")
+	RBUFFER=$(echo $RBUFFER | sed "s/\($\| \)/' /")
+	zle redisplay
 }
 zle -N toggleSingleString
 
 toggleDoubleString() {
-  LBUFFER=`echo $LBUFFER | sed 's/\(.*\) /\1 "/'`
-  RBUFFER=`echo $RBUFFER | sed 's/\($\| \)/" /'`
-  zle redisplay
+	LBUFFER=$(echo $LBUFFER | sed 's/\(.*\) /\1 "/')
+	RBUFFER=$(echo $RBUFFER | sed 's/\($\| \)/" /')
+	zle redisplay
 }
 zle -N toggleDoubleString
 
 clearString() {
-  LBUFFER=`echo $LBUFFER | sed 's/\(.*\)\('"'"'\|"\).*/\1\2/'`
-  RBUFFER=`echo $RBUFFER | sed 's/.*\('"'"'\|"\)\(.*$\)/\1\2/'`
-  zle redisplay
+	LBUFFER=$(echo $LBUFFER | sed 's/\(.*\)\('"'"'\|"\).*/\1\2/')
+	RBUFFER=$(echo $RBUFFER | sed 's/.*\('"'"'\|"\)\(.*$\)/\1\2/')
+	zle redisplay
 }
 zle -N clearString
 
 #overwrite alt+backspace
-backward-kill-dir () {
-    local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_'
-    zle backward-kill-word
+backward-kill-dir() {
+	local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_'
+	zle backward-kill-word
 }
 zle -N backward-kill-dir
 
 # backward half word
-backward-half-word () {
-    local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_.'
-    zle backward-word
+backward-half-word() {
+	local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_.'
+	zle backward-word
 }
 zle -N backward-half-word
 
 # forward half word
-forward-half-word () {
-    local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_.'
-    zle forward-word
+forward-half-word() {
+	local WORDCHARS='*?-[]~=&;!#$%^(){}<>|_.'
+	zle forward-word
 }
 zle -N forward-half-word
 
 # Function to move backward in directory history
 function prev-dir-in-stack() {
-  # If we're not at the end of the dirs history, go back
-  if (( CURRENT_DIR_STACK_INDEX < DIRSTACKSIZE - 1 )); then
-    (( CURRENT_DIR_STACK_INDEX++ ))
-    cd -$CURRENT_DIR_STACK_INDEX
-  fi
-  zle reset-prompt
+	# If we're not at the end of the dirs history, go back
+	if ((CURRENT_DIR_STACK_INDEX < DIRSTACKSIZE - 1)); then
+		((CURRENT_DIR_STACK_INDEX++))
+		cd -$CURRENT_DIR_STACK_INDEX
+	fi
+	zle reset-prompt
 }
 zle -N prev-dir-in-stack
 
 # Function to move forward in directory history
 function next-dir-in-stack() {
-  # If we're not at the beginning of the dirs history, go forward
-  if (( CURRENT_DIR_STACK_INDEX > 0 )); then
-    (( CURRENT_DIR_STACK_INDEX-- ))
-    cd -$CURRENT_DIR_STACK_INDEX
-  else
-    # If at the beginning, you might want to cd to the actual current directory
-    # or do nothing. This example will go to the previous if it exists.
-    cd $PWD
-  fi
-  zle reset-prompt
+	# If we're not at the beginning of the dirs history, go forward
+	if ((CURRENT_DIR_STACK_INDEX > 0)); then
+		((CURRENT_DIR_STACK_INDEX--))
+		cd -$CURRENT_DIR_STACK_INDEX
+	else
+		# If at the beginning, you might want to cd to the actual current directory
+		# or do nothing. This example will go to the previous if it exists.
+		cd $PWD
+	fi
+	zle reset-prompt
 }
 zle -N next-dir-in-stack
 
 # run command line as user root via sudo:
-function sudo-command-line () {
-    [[ -z $BUFFER ]] && zle up-history
-    if [[ $BUFFER != sudo\ * ]]; then
-        BUFFER="sudo $BUFFER"
-        CURSOR=$(( CURSOR+5 ))
-    fi
+function sudo-command-line() {
+	[[ -z $BUFFER ]] && zle up-history
+	if [[ $BUFFER != sudo\ * ]]; then
+		BUFFER="sudo $BUFFER"
+		CURSOR=$((CURSOR + 5))
+	fi
 }
 zle -N sudo-command-line
 
 # insert datetime on key shortcut
-function insert-datestamp () { LBUFFER+=${(%):-'%D{%Y-%m-%d}'}; }
+function insert-datestamp() { LBUFFER+=$(date +%Y-%m-%d); }
 zle -N insert-datestamp
 
 # get last modified file
-function get-last-modified-file () {
+function get-last-modified-file() {
 	LAST_FILE=$(\ls -t1p | grep -v / | head -1)
-	LBUFFER+=${(%):-$LAST_FILE}
+	LBUFFER+="$LAST_FILE"
 }
 zle -N get-last-modified-file
 
 # jump behind the first word on the cmdline
 # useful to add options.
-function jump_after_first_word () {
-    local words
-    words=(${(z)BUFFER})
+function jump_after_first_word() {
+	local words
+	words=(${(z)BUFFER})
 
-    if (( ${#words} <= 1 )) ; then
-        CURSOR=${#BUFFER}
-    else
-        CURSOR=${#${words[1]}}+1
-    fi
+	if ((${#words} <= 1)); then
+		CURSOR=${#BUFFER}
+	else
+		CURSOR=${#${words[1]}}+1
+	fi
 }
 zle -N jump_after_first_word
 
 # cdh: Change Directory History (Fish-like)
 # Requires fzf to be installed.
 function cdh() {
-  local selected_dir
-  selected_dir=$(
-    dirs -l -p | # List directories from stack, full path, one per line
-    sort -u | # Remove duplicates
-    fzf --no-sort --border --margin=1 --padding=1 --preview "ls -F {}" \
-        --header "Select a directory from history (cdh):" \
-        --height=50% --layout=reverse --cycle \
-        --query="$READLINE_LINE"
-  )
+	local selected_dir
+	selected_dir=$(
+		dirs -l -p | # List directories from stack, full path, one per line
+			sort -u |   # Remove duplicates
+			fzf --no-sort --border --margin=1 --padding=1 --preview "ls -F {}" \
+				--header "Select a directory from history (cdh):" \
+				--height=50% --layout=reverse --cycle \
+				--query="$READLINE_LINE"
+	)
 
-  if [[ -n "$selected_dir" ]]; then
-    cd -- $selected_dir
-  else
-    zle push-input                  # Restore previous input if nothing selected
-  fi
-  zle reset-prompt
+	if [[ -n "$selected_dir" ]]; then
+		cd -- $selected_dir
+	else
+		zle push-input # Restore previous input if nothing selected
+	fi
+	zle reset-prompt
 }
 zle -N cdh
 
@@ -256,37 +256,37 @@ if [[ ! -f ~/.zshcolor ]]; then
 	colors=('cyan' 'green' 'yellow' 'magenta' 'red' 'blue')
 	host_hash=$(hostnamectl --static | md5sum | tr -d '[a-fA-F]' | cut -d ' ' -f 1 | head -c 5)
 	prompt_color=$colors[$((host_hash % ${#colors[@]} + 1))]
-	echo -n $prompt_color > ~/.zshcolor
+	echo -n $prompt_color >~/.zshcolor
 else
 	prompt_color=$(cat ~/.zshcolor)
 fi
 
 prompt_dir_writeable() {
-    if [ -w $PWD ]; then
-        echo "blue"
-    else
-        echo "red"
-    fi
+	if [ -w $PWD ]; then
+		echo "blue"
+	else
+		echo "red"
+	fi
 }
 
 prompt_git_dirty() {
-    if ! command -v git &> /dev/null; then
-	    exit
-    fi
-    if git rev-parse --git-dir > /dev/null 2>&1; then
-        if [ -z "$(command git status --porcelain --ignore-submodules -unormal)" ]; then
-            echo "green"
-        else
-            echo "yellow"
-        fi
-    else
-        echo "red"
-    fi
+	if ! command -v git &>/dev/null; then
+		exit
+	fi
+	if git rev-parse --git-dir >/dev/null 2>&1; then
+		if [ -z "$(command git status --porcelain --ignore-submodules -unormal)" ]; then
+			echo "green"
+		else
+			echo "yellow"
+		fi
+	else
+		echo "red"
+	fi
 }
 
 prompt_get_namespace() {
 	return
-	if ! command -v kubens &> /dev/null; then
+	if ! command -v kubens &>/dev/null; then
 		exit
 	fi
 	echo "$(kubens -c)"
@@ -294,7 +294,7 @@ prompt_get_namespace() {
 
 prompt_get_context() {
 	return
-	if ! command -v kubectx &> /dev/null; then
+	if ! command -v kubectx &>/dev/null; then
 		exit
 	fi
 	prompt_context="$(kubectx -c)"
@@ -306,16 +306,16 @@ prompt_get_context() {
 }
 
 prompt_get_gcloud_context() {
-    if ! command -v gcloud &> /dev/null; then
-        exit
-    fi
-    echo "$(gcloud config get-value project)"
- }
+	if ! command -v gcloud &>/dev/null; then
+		exit
+	fi
+	echo "$(gcloud config get-value project)"
+}
 
 NEWLINE=$'\n'
 precmd() {
-    vcs_info
-    FIRST_PROMPT="%(!.%F{red}root%f.%F{green}$USER%f) %F{$prompt_color}%m%f %F{$(prompt_dir_writeable)}%~%f %* %F{$(prompt_git_dirty)}${vcs_info_msg_0_}%f $(prompt_get_gcloud_context) %F{blue}$(prompt_get_context) %F{cyan}$(prompt_get_namespace)%f %(1j.%j.)"
+	vcs_info
+	FIRST_PROMPT="%(!.%F{red}root%f.%F{green}$USER%f) %F{$prompt_color}%m%f %F{$(prompt_dir_writeable)}%~%f %* %F{$(prompt_git_dirty)}${vcs_info_msg_0_}%f $(prompt_get_gcloud_context) %F{blue}$(prompt_get_context) %F{cyan}$(prompt_get_namespace)%f %(1j.%j.)"
 }
 PROMPT='$FIRST_PROMPT${NEWLINE}%(?.%F{green}.%F{red})❯%f '
 
