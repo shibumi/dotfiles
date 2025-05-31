@@ -88,6 +88,7 @@ REPORTTIME=10
 
 # Dir stack size
 DIRSTACKSIZE=50
+CURRENT_DIR_STACK_INDEX=0
 
 # zstyles
 zstyle ':completion:*' menu select
@@ -165,6 +166,32 @@ forward-half-word () {
 }
 zle -N forward-half-word
 
+# Function to move backward in directory history
+function prev-dir-in-stack() {
+  # If we're not at the end of the dirs history, go back
+  if (( CURRENT_DIR_STACK_INDEX < DIRSTACKSIZE - 1 )); then
+    (( CURRENT_DIR_STACK_INDEX++ ))
+    cd -$CURRENT_DIR_STACK_INDEX
+  fi
+  zle reset-prompt
+}
+zle -N prev-dir-in-stack
+
+# Function to move forward in directory history
+function next-dir-in-stack() {
+  # If we're not at the beginning of the dirs history, go forward
+  if (( CURRENT_DIR_STACK_INDEX > 0 )); then
+    (( CURRENT_DIR_STACK_INDEX-- ))
+    cd -$CURRENT_DIR_STACK_INDEX
+  else
+    # If at the beginning, you might want to cd to the actual current directory
+    # or do nothing. This example will go to the previous if it exists.
+    cd $PWD
+  fi
+  zle reset-prompt
+}
+zle -N next-dir-in-stack
+
 # run command line as user root via sudo:
 function sudo-command-line () {
     [[ -z $BUFFER ]] && zle up-history
@@ -199,6 +226,28 @@ function jump_after_first_word () {
     fi
 }
 zle -N jump_after_first_word
+
+# cdh: Change Directory History (Fish-like)
+# Requires fzf to be installed.
+function cdh() {
+  local selected_dir
+  selected_dir=$(
+    dirs -l -p | # List directories from stack, full path, one per line
+    sort -u | # Remove duplicates
+    fzf --no-sort --border --margin=1 --padding=1 --preview "ls -F {}" \
+        --header "Select a directory from history (cdh):" \
+        --height=50% --layout=reverse --cycle \
+        --query="$READLINE_LINE"
+  )
+
+  if [[ -n "$selected_dir" ]]; then
+    cd -- $selected_dir
+  else
+    zle push-input                  # Restore previous input if nothing selected
+  fi
+  zle reset-prompt
+}
+zle -N cdh
 
 # Custom Prompt
 
@@ -287,6 +336,9 @@ bindkey '^xl' get-last-modified-file
 bindkey '^[^?' backward-kill-dir
 bindkey '\e[1;3D' backward-half-word
 bindkey '\e[1;3C' forward-half-word
+bindkey '^[[1;2D' prev-dir-in-stack
+bindkey '^[[1;2C' next-dir-in-stack
+bindkey '^G' cdh
 
 # load zsh-syntax-highlighting
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
