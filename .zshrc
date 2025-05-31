@@ -59,8 +59,12 @@ setopt pushd_ignore_dups
 setopt noglobdots
 # use zsh style word splitting
 setopt noshwordsplit
-# enable dir-stack
-setopt autopushd pushdminus pushdsilent pushdtohome
+# invert pushd
+setopt  pushdminus 
+# silent pushd
+setopt pushdsilent 
+# push home when using pushd 
+setopt pushdtohome
 # Remove duplicate entries
 setopt pushdignoredups
 # Shortcuts for directories e.g. hash -d
@@ -81,6 +85,9 @@ SAVEHIST=9000000
 HISTFILE=~/.zsh_history
 TIMEFMT="'$fg[green]%J$reset_color' time: $fg[blue]%*Es$reset_color, cpu: $fg[blue]%P$reset_color"
 REPORTTIME=10
+
+# Dir stack size
+DIRSTACKSIZE=50
 
 # zstyles
 zstyle ':completion:*' menu select
