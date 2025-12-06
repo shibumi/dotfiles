@@ -54,3 +54,10 @@ eval $(sed 's/^/export /' $HOME/.config/environment.d/envvars.conf)
 if [ "$(tty)" = "/dev/tty1" ]; then
   WLR_DRM_NO_MODIFIERS=1 exec systemd-cat --identifier=sway sway
 fi
+
+# cdr jumps to the git root directory. Very useful when moving
+# to different directories within a git repository.
+function cdr() {
+  cd "$(git rev-parse --show-toplevel)"
+}
+
