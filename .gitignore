@@ -5,15 +5,10 @@
 !.gtkrc-2.0
 !.local
 !.local/bin/
-!.local/bin/mknspawn
 !.local/bin/screenshot-wl
 !.local/bin/textshot-wl
 !.local/bin/videoshot-wl
-!.local/bin/git-repo
-!.local/bin/ssh-keys
-!.local/bin/publishpkg
 !.local/bin/scanpdf
-!.local/bin/bemenu-gopass
 !.local/bin/bemenu-oath
 !.local/bin/bemenu-system
 !.local/bin/bemenu-wlr
@@ -24,7 +19,6 @@
 !.local/share/udev/
 !.local/share/udev/99-backlight.rules
 !.local/share/scripts/
-!.local/share/scripts/ssh_give_pass
 !.local/share/scripts/library
 !.local/share/scripts/i3-move-to-new-workspace
 !.local/share/scripts/i3-new-workspace
