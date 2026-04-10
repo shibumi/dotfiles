@@ -6,16 +6,16 @@
     ],
     "transports": {
         "docker": {
-            "registry.hub.docker.com/google": [
+            "docker.io/library": [
                 {
                     "type": "insecureAcceptAnything"
                 }
             ],
-            "registry.hub.docker.com/library": [
+            "docker.io/google": [
                 {
                     "type": "insecureAcceptAnything"
                 }
-            ]
-        }
+            ]        
+	}
     }
 }
