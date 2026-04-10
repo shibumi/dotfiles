@@ -15,7 +15,12 @@
                 {
                     "type": "insecureAcceptAnything"
                 }
-            ]        
+            ],
+	    "gcr.io": [
+		{
+		    "type": "insecureAcceptAnything"
+		}
+	    ]
 	}
     }
 }
