@@ -249,6 +249,11 @@ function cdh() {
 }
 zle -N cdh
 
+# cdr: Change directory to current git root.
+function cdr() {
+	cd "$(git rev-parse --show-toplevel)"
+}
+
 # Custom Prompt
 
 if [[ ! -f ~/.zshcolor ]]; then
